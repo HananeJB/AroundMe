@@ -26,7 +26,16 @@
                 <div class="clearfix"></div>
             </div>
             <div class="utf_right_side">
-                <div class="header_widget"> <a href="#dialog_signin_part" class="button border sign-in popup-with-zoom-anim"><i class="fa fa-sign-in"></i> Sign In</a> <a href="dashboard_add_listing.html" class="button border with-icon"><i class="sl sl-icon-user"></i> Add Listing</a></div>
+                <div class="header_widget">
+                    @auth
+                        <a href="{{ route('logout') }}" class="button border "><i class="fa fa-sign-in"></i> Log out</a>
+
+                    @endauth
+                    @guest
+                    <a href="#dialog_signin_part" class="button border sign-in popup-with-zoom-anim"><i class="fa fa-sign-in"></i> Sign In</a>
+                        @endguest
+                    <a href="dashboard_add_listing.html" class="button border with-icon"><i class="sl sl-icon-user"></i> Add Listing</a>
+                </div>
             </div>
 
             <div id="dialog_signin_part" class="zoom-anim-dialog mfp-hide">
@@ -41,21 +50,42 @@
                     <div class="tab_container alt">
                         <div class="tab_content" id="tab1" style="display:none;">
                             <form method="post" class="login" action="{{ route('login') }}">
+                                @csrf
                                 <a href="javascript:void(0);" class="social_bt facebook_btn"><i class="fa fa-facebook"></i>Login with Facebook</a>
                                 <a href="javascript:void(0);" class="social_bt google_btn"><i class="fa fa-google-plus"></i>Login with Google</a>
                                 <p class="utf_row_form utf_form_wide_block">
-                                    <label for="username">
-                                        <input type="text" class="input-text" name="username" id="username" value="" placeholder="Username" />
+                                    <label for="email">
+                                        <input id="email" class="input-text" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
                                     </label>
                                 </p>
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="password">
-                                        <input class="input-text" type="password" name="password" id="password" placeholder="Password"/>
+                                        <input  class="input-text" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
                                     </label>
                                 </p>
-                                <div class="utf_row_form utf_form_wide_block form_forgot_part"> <span class="lost_password fl_left"> <a href="javascript:void(0);">Forgot Password?</a> </span>
+                                <div class="utf_row_form utf_form_wide_block form_forgot_part"> <span class="lost_password fl_left">
+                                         @if (Route::has('password.request'))
+                                            <a class="btn btn-link" href="{{ route('password.request') }}">
+
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                        @endif
+                                      </span>
                                     <div class="checkboxes fl_right">
-                                        <input id="remember-me" type="checkbox" name="check">
+
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                         <label for="remember-me">Remember Me</label>
                                     </div>
                                 </div>
@@ -66,25 +96,46 @@
                         </div>
 
                         <div class="tab_content" id="tab2" style="display:none;">
-                            <form method="post" class="register">
+                            <form method="POST" class="register" action="{{ route('register') }}">
+                                @csrf  @foreach($errors->all() as $error)
+                                    <div class="alert alert-success">
+                                        {{ $error  }}
+                                    </div>
+                                @endforeach
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="username2">
-                                        <input type="text" class="input-text" name="username" id="username2" value="" placeholder="Username" />
+                                        <input id="name" type="text" class="input-text @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
                                     </label>
                                 </p>
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="email2">
-                                        <input type="text" class="input-text" name="email" id="email2" value="" placeholder="Email" />
+                                        <input id="email" type="email" class="input-text @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
                                     </label>
                                 </p>
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="password1">
-                                        <input class="input-text" type="password" name="password1" id="password1" placeholder="Password" />
+                                        <input id="password" type="password" class="input-text @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
                                     </label>
                                 </p>
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="password2">
-                                        <input class="input-text" type="password" name="password2" id="password2" placeholder="Confirm Password" />
+                                        <input id="password-confirm" type="password" class="input-text" name="password_confirmation" required autocomplete="new-password">
+
                                     </label>
                                 </p>
                                 <input type="submit" class="button border fw margin-top-10" name="register" value="Register" />
