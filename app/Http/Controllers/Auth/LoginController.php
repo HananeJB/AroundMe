@@ -36,7 +36,7 @@ class LoginController extends Controller
         } elseif (Auth::user()->user_type == 'SuperAdministrator') {
             return 'main_admin';  // member dashboard path
         }else{
-            return 'home';  // member dashboard path
+            return '/';  // member dashboard path
         }
     }
 

@@ -55,7 +55,7 @@
                                 <a href="javascript:void(0);" class="social_bt google_btn"><i class="fa fa-google-plus"></i>Login with Google</a>
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="email">
-                                        <input id="email" class="input-text" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        <input id="email" placeholder="Email" class="input-text" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -66,7 +66,7 @@
                                 </p>
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="password">
-                                        <input  class="input-text" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                        <input  class="input-text" placeholder="Password" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -104,7 +104,7 @@
                                 @endforeach
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="username2">
-                                        <input id="name" type="text" class="input-text @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        <input id="name" placeholder="Name" type="text" class="input-text @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -114,7 +114,7 @@
                                 </p>
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="email2">
-                                        <input id="email" type="email" class="input-text @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        <input id="email" placeholder="Email" type="email" class="input-text @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -124,7 +124,7 @@
                                 </p>
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="password1">
-                                        <input id="password" type="password" class="input-text @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                        <input id="password" placeholder="Password" type="password" class="input-text @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -134,7 +134,7 @@
                                 </p>
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="password2">
-                                        <input id="password-confirm" type="password" class="input-text" name="password_confirmation" required autocomplete="new-password">
+                                        <input id="password-confirm" placeholder="Confirm password" type="password" class="input-text" name="password_confirmation" required autocomplete="new-password">
 
                                     </label>
                                 </p>

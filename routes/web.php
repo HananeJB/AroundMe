@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 /* Admin */
@@ -31,3 +31,13 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::middleware(['auth', 'superadmin'])->group(function () {
     Route::get('/main_admin', [App\Http\Controllers\AdminController::class, 'index'])->name('superAdmin');
 });
+
+/*Home Controller*/
+
+Route::get('/listings', [HomeController::class, 'listings']);
+Route::get('/detailListing', [HomeController::class, 'detailListing']);
+Route::get('/listings', [HomeController::class, 'listings']);
+Route::get('/payment', [HomeController::class, 'payment']);
+
+
+

@@ -1,7 +1,7 @@
 @extends('layouts.frontend_layout')
 
 @section('head')
-    <title>AroundMe | dashboard</title>
+    <title>AroundMe | Home</title>
     <meta name="description" content="TravelGO - Premium site template for travel agencies, hotels and restaurant listing.">
 @endsection
 

@@ -25,4 +25,15 @@ class HomeController extends Controller
     {
         return view('frontend.home');
     }
+
+    public function listings(){
+        return view('frontend.listings.listings');
+    }
+
+    public function detailListing(){
+        return view('frontend.listings.listing_loisir');
+    }
+    public function payment(){
+        return view('frontend.payment');
+    }
 }
