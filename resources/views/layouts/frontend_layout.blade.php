@@ -22,6 +22,8 @@
 @include('layouts.includes.footer')
 
 </div>
-
+@yield('custom_js')
 </body>
+
+
 </html>
