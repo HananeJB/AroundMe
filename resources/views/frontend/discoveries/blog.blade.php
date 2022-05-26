@@ -14,11 +14,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Blog Right Sidebar</h2>
+                        <h2>Découvertes</h2>
                         <nav id="breadcrumbs">
                             <ul>
-                                <li><a href="index_1.html">Home</a></li>
-                                <li>Blog Right Sidebar</li>
+                                <li><a href="/">Acceuil</a></li>
+                                <li>Découvertes</li>
                             </ul>
                         </nav>
                     </div>

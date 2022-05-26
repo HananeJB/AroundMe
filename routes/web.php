@@ -35,11 +35,12 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
 
 /*Home Controller*/
 
-
 Route::get('/detailListing', [HomeController::class, 'detailListing']);
-
 Route::get('/payment', [HomeController::class, 'payment']);
-
+Route::get('/business', [HomeController::class, 'businesshome']);
+Route::get('/pricing', [HomeController::class, 'pricing']);
+Route::get('/register_lisitng',[HomeController::class,'add_admin']);
+Route::get('/discoveries',[HomeController::class, 'discoveries']);
 
 /* CRUDS */
 

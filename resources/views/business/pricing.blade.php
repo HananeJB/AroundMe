@@ -17,7 +17,7 @@
                         <h2>Pricing</h2>
                         <nav id="breadcrumbs">
                             <ul>
-                                <li><a href="index_1.html">Home</a></li>
+                                <li><a href="/business">Home</a></li>
                                 <li>Pricing</li>
                             </ul>
                         </nav>
@@ -48,7 +48,7 @@
                                     <li>Featured In Search Results</li>
                                     <li>24/7 Support</li>
                                 </ul>
-                                <a class="button border" href="#"><i class="sl sl-icon-basket"></i> Order Now</a>
+                                <a class="button border" href="/register_lisitng"><i class="sl sl-icon-basket"></i> Order Now</a>
                             </div>
                         </div>
 

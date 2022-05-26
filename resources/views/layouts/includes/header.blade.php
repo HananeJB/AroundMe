@@ -2,7 +2,7 @@
     <div id="header">
         <div class="container">
             <div class="utf_left_side">
-                <div id="logo"> <a href="index_1.html"><img src="images/logo.png" alt=""></a> </div>
+                <div id="logo"> <a href="/"><img src="images/logo.png" alt=""></a> </div>
                 <div class="mmenu-trigger">
                     <button class="hamburger utfbutton_collapse" type="button">
 				<span class="utf_inner_button_box">
@@ -12,13 +12,13 @@
                 </div>
                 <nav id="navigation" class="style_one">
                     <ul id="responsive">
-                        <li><a class="current" href="#">Home</a>
+                        <li><a class="current" href="/">Home</a>
                         </li>
                         <li>
                             <a href="listings_half_screen_map_grid.html">Listings</a>
                         </li>
 
-                        <li><a href="blog_page_right_sidebar.html">Discoveries</a></li>
+                        <li><a href="/discoveries">Discoveries</a></li>
 
 
                     </ul>
@@ -32,20 +32,20 @@
 
                     @endauth
                     @guest
-                    <a href="#dialog_signin_part" class="button border sign-in popup-with-zoom-anim"><i class="fa fa-sign-in"></i> Sign In</a>
+                    <a href="#dialog_signin_part" class="button border sign-in popup-with-zoom-anim"><i class="fa fa-sign-in"></i> Se connecter</a>
                         @endguest
-                    <a href="dashboard_add_listing.html" class="button border with-icon"><i class="sl sl-icon-user"></i> Add Listing</a>
+                    <a href="/business" class="button border with-icon"><i class="sl sl-icon-user"></i> Ajouter une annonce</a>
                 </div>
             </div>
 
             <div id="dialog_signin_part" class="zoom-anim-dialog mfp-hide">
                 <div class="small_dialog_header">
-                    <h3>Sign In</h3>
+
                 </div>
                 <div class="utf_signin_form style_one">
                     <ul class="utf_tabs_nav">
-                        <li class=""><a href="#tab1">Log In</a></li>
-                        <li><a href="#tab2">Register</a></li>
+                        <li class=""><a href="#tab1">Se connecter</a></li>
+                        <li><a href="#tab2">S'enregistrer</a></li>
                     </ul>
                     <div class="tab_container alt">
                         <div class="tab_content" id="tab1" style="display:none;">
@@ -79,18 +79,18 @@
                                          @if (Route::has('password.request'))
                                             <a class="btn btn-link" href="{{ route('password.request') }}">
 
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('Mot de passe oublié ?') }}
                                     </a>
                                         @endif
                                       </span>
                                     <div class="checkboxes fl_right">
 
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <label for="remember-me">Remember Me</label>
+                                        <label for="remember-me">Se rappeler de moi</label>
                                     </div>
                                 </div>
                                 <div class="utf_row_form">
-                                    <input type="submit" class="button border margin-top-5" name="login" value="Login" />
+                                    <input type="submit" class="button border margin-top-5" name="login" value="Se connecter" />
                                 </div>
                             </form>
                         </div>
@@ -138,7 +138,7 @@
 
                                     </label>
                                 </p>
-                                <input type="submit" class="button border fw margin-top-10" name="register" value="Register" />
+                                <input type="submit" class="button border fw margin-top-10" name="register" value="Créer un compte" />
                             </form>
                         </div>
                     </div>

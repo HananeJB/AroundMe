@@ -38,7 +38,18 @@ class HomeController extends Controller
     }
 
     public function businesshome(){
-        return view('frontend.business.home');
+        return view('business.home');
     }
+
+    public function pricing(){
+        return view('business.pricing');
+    }
+    public function add_admin(){
+        return view('business.create_account');
+    }
+    public function discoveries(){
+        return view('frontend.discoveries.blog');
+    }
+
 
 }
