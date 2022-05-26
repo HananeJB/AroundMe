@@ -36,4 +36,9 @@ class HomeController extends Controller
     public function payment(){
         return view('frontend.payment');
     }
+
+    public function businesshome(){
+        return view('frontend.business.home');
+    }
+
 }

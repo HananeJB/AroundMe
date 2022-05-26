@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -34,10 +35,15 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
 
 /*Home Controller*/
 
-Route::get('/listings', [HomeController::class, 'listings']);
+
 Route::get('/detailListing', [HomeController::class, 'detailListing']);
-Route::get('/listings', [HomeController::class, 'listings']);
+
 Route::get('/payment', [HomeController::class, 'payment']);
+
+
+/* CRUDS */
+
+Route::resource('listing', ListingController::class);
 
 
 
