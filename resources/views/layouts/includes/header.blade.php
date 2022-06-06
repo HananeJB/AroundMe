@@ -2,7 +2,7 @@
     <div id="header">
         <div class="container">
             <div class="utf_left_side">
-                <div id="logo"> <a href="/"><img src="images/logo.png" alt=""></a> </div>
+                <div id="logo"> <a href="/"><img src="/images/logo.png" alt=""></a> </div>
                 <div class="mmenu-trigger">
                     <button class="hamburger utfbutton_collapse" type="button">
 				<span class="utf_inner_button_box">
@@ -28,13 +28,26 @@
             <div class="utf_right_side">
                 <div class="header_widget">
                     @auth
-                        <a href="{{ route('logout') }}" class="button border "><i class="fa fa-sign-in"></i> Log out</a>
+
+                        <a href="{{ route('logout') }}" class="button border "><i class="fa fa-sign-in"></i>Se déconnecter</a>
+                        @php
+                            $isAdmin = Auth::user()->user_type;
+                        @endphp
+                        @if($isAdmin == 'Administrator')
+                            <a href="/admin" class="button border with-icon"><i class="sl sl-icon-user"></i>Dashboard</a>
+                        @else
+                            <a href="/adddiscovery" class="button border with-icon"><i class="sl sl-icon-user"></i>Ajouter découverte</a>
+                        @endif
 
                     @endauth
+
                     @guest
                     <a href="#dialog_signin_part" class="button border sign-in popup-with-zoom-anim"><i class="fa fa-sign-in"></i> Se connecter</a>
+                            <a href="/business" class="button border with-icon"><i class="sl sl-icon-user"></i> Ajouter une annonce</a>
                         @endguest
-                    <a href="/business" class="button border with-icon"><i class="sl sl-icon-user"></i> Ajouter une annonce</a>
+
+
+
                 </div>
             </div>
 

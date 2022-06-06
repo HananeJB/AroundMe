@@ -4,6 +4,7 @@ use App\Http\Controllers\ListingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DiscoveryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,11 +41,13 @@ Route::get('/payment', [HomeController::class, 'payment']);
 Route::get('/business', [HomeController::class, 'businesshome']);
 Route::get('/pricing', [HomeController::class, 'pricing']);
 Route::get('/register_lisitng',[HomeController::class,'add_admin']);
-Route::get('/discoveries',[HomeController::class, 'discoveries']);
+
+
 
 /* CRUDS */
 
 Route::resource('listing', ListingController::class);
+Route::resource('discoveries',DiscoveryController::class);
 
 
 
