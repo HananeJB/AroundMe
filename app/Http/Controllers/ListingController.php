@@ -27,9 +27,9 @@ class ListingController extends Controller
     {
 
 
-            $path_logo = $request->file('logo')->store('public/images');
-            $path_cover = $request->file('cover')->store('public/images');
-            $path_gallery = $request->file('gallery')->store('public/images');
+            $path_logo = $request->file('logo')->store('images');
+            $path_cover = $request->file('cover')->store('images');
+            $path_gallery = $request->file('gallery')->store('images');
             $listing= new Listing;
             $listing->listing_title=$request->listing_title ;
             $listing->keywords=$request->keywords ;
@@ -104,14 +104,14 @@ class ListingController extends Controller
             $request->validate([
                 'cover' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             ]);
-            $path = $request->file('cover')->store('public/images');
+            $path = $request->file('cover')->store('images');
             $listing->image = $path;
         }
         if($request->hasFile('logo')){
             $request->validate([
                 'logo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             ]);
-            $path = $request->file('logo')->store('public/images');
+            $path = $request->file('logo')->store('images');
             $listing->image = $path;
         }
 

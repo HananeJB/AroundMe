@@ -18,6 +18,7 @@ class CreateDiscoveriesTable extends Migration
             $table->timestamps();
             $table->string('title');
             $table->longText('content');
+            $table->longText('author');
             $table->string('tagline');
             $table->string('category');
             $table->string('city');

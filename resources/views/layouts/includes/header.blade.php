@@ -12,7 +12,7 @@
                 </div>
                 <nav id="navigation" class="style_one">
                     <ul id="responsive">
-                        <li><a class="current" href="/">Home</a>
+                        <li><a href="/">Home</a>
                         </li>
                         <li>
                             <a href="listings_half_screen_map_grid.html">Listings</a>
@@ -36,7 +36,7 @@
                         @if($isAdmin == 'Administrator')
                             <a href="/admin" class="button border with-icon"><i class="sl sl-icon-user"></i>Dashboard</a>
                         @else
-                            <a href="/adddiscovery" class="button border with-icon"><i class="sl sl-icon-user"></i>Ajouter découverte</a>
+                            <a href="/discoveries/create" class="button border with-icon"><i class="sl sl-icon-user"></i>Ajouter découverte</a>
                         @endif
 
                     @endauth

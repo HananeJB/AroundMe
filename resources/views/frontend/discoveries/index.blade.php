@@ -33,17 +33,22 @@
 
                         @foreach ($discoveries as $discovery)
                         <div class="utf_blog_post">
-                            <a href="/discoveries/{{$discovery->id}}" class="utf_post_img"> <img src="uploads/blog/{{$discovery->image}}" alt=""> </a>
+                            <a href="/discoveries/{{$discovery->id}}" class="utf_post_img"> <img style="width: 750px; height: 550px;" src="images/{{$discovery->cover}}" alt=""> </a>
                             <div class="utf_post_content">
                                 <h3><a href="/discoveries/{{$discovery->id}}">{{$discovery->title}}</a></h3>
                                 <ul class="utf_post_text_meta">
                                     <li>{{$discovery->created_at}}</li>
 
-                                    <li>By <a href="#">Tips</a> {{$discovery->author}}</li>
+                                    <li>By <a href="#">{{$discovery->author}}</a> </li>
                                     <li><a href="#">5 Comments</a></li>
+                                    <li>{{$discovery->category}}</li>
                                 </ul>
-                                <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic type setting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.<a href="blog_detail_right_sidebar.html">[...]</a></p>
-                                <a href="blog_detail_right_sidebar.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
+
+                                @php
+                                    $body = substr($discovery->content, 0, 500);
+                                @endphp
+                                <p>{!! $body !!} <a href="/discoveries/{{$discovery->id}}">[...]</a></p>
+                                <a href="/discoveries/{{$discovery->id}}" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
 
@@ -55,12 +60,7 @@
                                 <div class="utf_pagination_container_part margin-bottom-70">
                                     <nav class="pagination">
                                         <ul>
-                                            <li><a href="#"><i class="sl sl-icon-arrow-left"></i></a></li>
-                                            <li><a href="#" class="current-page">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#"><i class="sl sl-icon-arrow-right"></i></a></li>
+                                            {!!$discoveries->links()!!}
                                         </ul>
                                     </nav>
                                 </div>
@@ -95,36 +95,20 @@
                             <div class="utf_box_widget margin-top-40">
                                 <h3><i class="sl sl-icon-book-open"></i> Popular Post</h3>
                                 <ul class="utf_widget_tabs">
-                                    <li>
-                                        <div class="utf_widget_content">
-                                            <div class="utf_widget_thum"> <a href="blog_detail_right_sidebar.html"><img src="images/blog-widget-03.jpg" alt=""></a> </div>
-                                            <div class="utf_widget_text">
-                                                <h5><a href="blog_detail_right_sidebar.html">Lorem ipsum dolor sit amet consectetur...</a></h5>
-                                                <span><i class="fa fa-clock-o"></i> Feb 02, 2019 at 12:52 pm</span>
+                                    @foreach($latest as $post)
+                                        <li>
+                                            <div class="utf_widget_content">
+                                                <div class="utf_widget_thum"> <a href="/discoveries/{{$post->id}}"><img src="/images/{{$post->cover}}" alt=""></a> </div>
+                                                <div class="utf_widget_text">
+
+                                                    <h5><a href="/discoveries/{{$post->id}}">{{$post->title}}</a></h5>
+
+                                                    <span><i class="fa fa-clock-o"></i> {{ date('M-d h s a', strtotime($post->created_at)) }}</span>
+                                                </div>
+                                                <div class="clearfix"></div>
                                             </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="utf_widget_content">
-                                            <div class="utf_widget_thum"> <a href="blog_detail_right_sidebar.html"><img src="images/blog-widget-02.jpg" alt=""></a> </div>
-                                            <div class="utf_widget_text">
-                                                <h5><a href="blog_detail_right_sidebar.html">Lorem ipsum dolor sit amet consectetur...</a></h5>
-                                                <span><i class="fa fa-clock-o"></i> Feb 02, 2019 at 12:52 pm</span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="utf_widget_content">
-                                            <div class="utf_widget_thum"> <a href="blog_detail_right_sidebar.html"><img src="images/blog-widget-01.jpg" alt=""></a> </div>
-                                            <div class="utf_widget_text">
-                                                <h5><a href="blog_detail_right_sidebar.html">Lorem ipsum dolor sit amet consectetur...</a></h5>
-                                                <span><i class="fa fa-clock-o"></i> Feb 02, 2019 at 12:52 pm</span>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
 

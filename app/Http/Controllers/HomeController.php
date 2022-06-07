@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Discovery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.home');
+        $discoveries=DB::table('discoveries')->get();
+        return view('frontend.home', compact('discoveries'));
     }
 
     public function listings(){
@@ -47,7 +50,9 @@ class HomeController extends Controller
     public function add_admin(){
         return view('business.create_account');
     }
+
     public function discoveries(){
+
         return view('frontend.discoveries.blog');
     }
 

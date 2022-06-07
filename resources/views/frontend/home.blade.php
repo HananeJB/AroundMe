@@ -549,14 +549,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="headline_part centered margin-bottom-50">For those eager for discoveries<span>Discover & connect with top-rated local businesses</span></h3>
+                    <h3 class="headline_part centered margin-bottom-50">Pour ceux avident d'aventures et de découvertes<span>Découvrer les merveilles de votre ville</span></h3>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-6 col-xs-12"> <a href="blog_detail_post.html" class="blog_compact_part-container">
-                        <div class="blog_compact_part"> <img src="images/blog-compact-post-01.jpg" alt="">
+                @foreach($discoveries as $discovery)
+                <div class="col-md-4 col-sm-6 col-xs-12"> <a href="/discoveries/{{$discovery->id}}" class="blog_compact_part-container">
+                        <div class="blog_compact_part"> <img src="/images/{{$discovery->cover}}" alt="">
                             <div class="blog_compact_part_content">
-                                <h3>The Most Popular New top Places Listing</h3>
+                                <h3>{{$discovery->title}}</h3>
                                 <ul class="blog_post_tag_part">
                                     <li>22 January 2019</li>
                                 </ul>
@@ -566,40 +567,8 @@
                         </div>
                     </a>
                 </div>
+                @endforeach
 
-                <div class="col-md-4 col-sm-6 col-xs-12"> <a href="blog_detail_post.html" class="blog_compact_part-container">
-                        <div class="blog_compact_part"> <img src="images/blog-compact-post-02.jpg" alt="">
-                            <div class="blog_compact_part_content">
-                                <h3>Greatest Event Places in Listing</h3>
-
-                                <ul class="blog_post_tag_part">
-                                    <li>18 January 2019</li>
-
-
-
-                                </ul>
-                                <div class="utf_star_rating_section" data-rating="4.5">
-
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-4 col-sm-6 col-xs-12"> <a href="blog_detail_post.html" class="blog_compact_part-container">
-                        <div class="blog_compact_part"> <img src="images/blog-compact-post-03.jpg" alt="">
-                            <div class="blog_compact_part_content">
-                                <h3>Top 15 Greatest Ideas for Health & Body</h3>
-                                <ul class="blog_post_tag_part">
-                                    <li>10 January 2019</li>
-                                </ul>
-                                <div class="utf_star_rating_section" data-rating="5"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
 
 
                 <div class="col-md-12 centered_content"> <a href="blog_page_right_sidebar.html" class="button border margin-top-20">View More Blog</a> </div>

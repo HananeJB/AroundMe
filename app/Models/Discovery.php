@@ -11,6 +11,7 @@ class Discovery extends Model
     protected $fillable = [
         'title' ,
         'user_id',
+        'author',
         'content' ,
         'tagline' ,
         'category' ,

@@ -38,6 +38,7 @@
                         @endforeach
                         @auth
                             <input type="hidden" name="user_id" value="{{  Auth::id() }}" />
+                            <input type="hidden" name="author" value="{{  Auth::user()->name }}" />
                         @endauth
                         @guest
                             <div class="utf_add_listing_part_headline_part">

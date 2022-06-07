@@ -6,14 +6,16 @@ use App\Models\Discovery;
 use App\Models\Image;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DiscoveryController extends Controller
 {
     public function index()
     {
-        $author = User::pluck('name', 'id');
-        $discoveries = Discovery::latest()->simplepaginate(5);
-        return view('frontend.discoveries.index', compact('discoveries','author'));
+        $latest = Discovery::latest()->take(3)->get();
+        $discoveries= DB::table('users')->join('discoveries','users.id','=',"discoveries.user_id")->paginate(5);
+
+        return view('frontend.discoveries.index', compact('discoveries','latest'));
     }
 
     public function create()
@@ -26,6 +28,7 @@ class DiscoveryController extends Controller
         $request->validate([
             'user_id'=>'required',
             'title' => 'required',
+            'author' => 'required',
             'content' => 'required',
             'tagline' => 'required',
             'category' => 'required',
@@ -39,7 +42,7 @@ class DiscoveryController extends Controller
         $input = $request->all();
 
         if ($image = $request->file('cover')) {
-            $destinationPath = 'uploads/blog/';
+            $destinationPath = 'images';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['cover'] = "$profileImage";
@@ -52,7 +55,12 @@ class DiscoveryController extends Controller
     }
     public function show(Discovery $discovery)
     {
-        return view('frontend.discoveries.show', compact('discovery'));
+        $user=$discovery->user_id;
+        $users=DB::table('users')->join('discoveries','users.id','=',"discoveries.user_id")->where('users.id','=',$user)->get();
+        $category=$discovery->category;
+        $latest = Discovery::latest()->take(3)->get();
+        $related = DB::table('discoveries')->where('category','=',$category)->get();
+        return view('frontend.discoveries.show', compact('discovery','latest','related','users'));
     }
 
 
