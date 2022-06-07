@@ -30,13 +30,16 @@
             <div class="blog-page">
                 <div class="row">
                     <div class="col-lg-8 col-md-8">
+
+                        @foreach ($discoveries as $discovery)
                         <div class="utf_blog_post">
-                            <a href="blog_detail_right_sidebar.html" class="utf_post_img"> <img src="images/blog-post-01.jpg" alt=""> </a>
+                            <a href="/discoveries/{{$discovery->id}}" class="utf_post_img"> <img src="uploads/blog/{{$discovery->image}}" alt=""> </a>
                             <div class="utf_post_content">
-                                <h3><a href="blog_detail_right_sidebar.html">Get Alife Insurance for Your Business</a></h3>
+                                <h3><a href="/discoveries/{{$discovery->id}}">{{$discovery->title}}</a></h3>
                                 <ul class="utf_post_text_meta">
-                                    <li>Feb 02, 2019 / 12:52 pm</li>
-                                    <li>By <a href="#">Tips</a> Admin</li>
+                                    <li>{{$discovery->created_at}}</li>
+
+                                    <li>By <a href="#">Tips</a> {{$discovery->author}}</li>
                                     <li><a href="#">5 Comments</a></li>
                                 </ul>
                                 <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic type setting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.<a href="blog_detail_right_sidebar.html">[...]</a></p>
@@ -44,33 +47,7 @@
                             </div>
                         </div>
 
-                        <div class="utf_blog_post">
-                            <a href="blog_detail_right_sidebar.html" class="utf_post_img"> <img src="images/blog-post-02.jpg" alt=""> </a>
-                            <div class="utf_post_content">
-                                <h3><a href="blog_detail_right_sidebar.html">Get Alife Insurance for Your Business</a></h3>
-                                <ul class="utf_post_text_meta">
-                                    <li>Feb 02, 2019 / 12:52 pm</li>
-                                    <li>By <a href="#">Tips</a> Admin</li>
-                                    <li><a href="#">7 Comments</a></li>
-                                </ul>
-                                <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic type setting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.<a href="blog_detail_right_sidebar.html">[...]</a></p>
-                                <a href="blog_detail_right_sidebar.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="utf_blog_post">
-                            <a href="blog_detail_right_sidebar.html" class="utf_post_img"> <img src="images/blog-post-03.jpg" alt=""> </a>
-                            <div class="utf_post_content">
-                                <h3><a href="blog_detail_right_sidebar.html">Get Alife Insurance for Your Business</a></h3>
-                                <ul class="utf_post_text_meta">
-                                    <li>Feb 02, 2019 / 12:52 pm</li>
-                                    <li>By <a href="#">Tips</a> Admin</li>
-                                    <li><a href="#">12 Comments</a></li>
-                                </ul>
-                                <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic type setting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing.<a href="blog_detail_right_sidebar.html">[...]</a></p>
-                                <a href="blog_detail_right_sidebar.html" class="read-more">Read More <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
+                        @endforeach
 
                         <div class="clearfix"></div>
                         <div class="row">

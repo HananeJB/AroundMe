@@ -10,8 +10,8 @@ class Discovery extends Model
     use HasFactory;
     protected $fillable = [
         'title' ,
+        'user_id',
         'content' ,
-        'author',
         'tagline' ,
         'category' ,
         'city' ,
@@ -24,5 +24,9 @@ class Discovery extends Model
 
     public function images(){
         return $this->hasMany(Image::class);
+    }
+    public function users() {
+        return $this->belongsTo(User::class);
+
     }
 }

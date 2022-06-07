@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Discovery;
 use App\Models\Image;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DiscoveryController extends Controller
 {
     public function index()
     {
+        $author = User::pluck('name', 'id');
         $discoveries = Discovery::latest()->simplepaginate(5);
-        return view('frontend.discoveries.index', compact('discoveries'));
+        return view('frontend.discoveries.index', compact('discoveries','author'));
     }
 
     public function create()
@@ -22,8 +24,8 @@ class DiscoveryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'user_id'=>'required',
             'title' => 'required',
-            'author' => 'required',
             'content' => 'required',
             'tagline' => 'required',
             'category' => 'required',
@@ -42,11 +44,11 @@ class DiscoveryController extends Controller
             $image->move($destinationPath, $profileImage);
             $input['cover'] = "$profileImage";
         }
-        
+
 
         Discovery::create($input);
 
-        return redirect('frontend.discoveries.index')->with('success','Post created successfully!');
+        return redirect('discoveries')->with('success','Post ajouté!');
     }
     public function show(Discovery $discovery)
     {

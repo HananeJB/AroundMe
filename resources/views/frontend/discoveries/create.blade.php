@@ -29,8 +29,29 @@
     <div class="container">
         <div class="blog-page">
             <div class="row">
+
                 <div class="col-lg-12">
-                    <form>
+                    <form method="post" action="{{ route('discoveries.store') }}" enctype="multipart/form-data">
+                        @csrf
+                        @foreach($errors->all() as $error)
+                            {{ $error  }}
+                        @endforeach
+                        @auth
+                            <input type="hidden" name="user_id" value="{{  Auth::id() }}" />
+                        @endauth
+                        @guest
+                            <div class="utf_add_listing_part_headline_part">
+                                <h3><i class="sl sl-icon-user"></i> Have an Account?</h3>
+                                <div class="row with-forms">
+                                    <div class="col-md-12">
+                                        <div class="form-group lis-relative">
+                                            Sign in If you don’t have an account you can create one below by entering your email address/username. Your account details will be confirmed via email. <a href="#dialog_signin_part" class="login_form sign-in popup-with-zoom-anim">Sign in</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endguest
+
                     <div id="utf_add_listing_part">
                         <div class="add_utf_listing_section margin-top-45">
                             <div class="utf_add_listing_part_headline_part">
@@ -39,6 +60,7 @@
                             <div class="row with-forms">
 
                                 <div class="utf_submit_section col-md-4">
+
                                     <h4>Cover Image</h4>
                                     <input type="file" name="cover" class="dropzone" placeholder="image">
                                 </div>
@@ -137,7 +159,8 @@
 
 
 
-                        <a href="#" class="button preview">Save &amp; Preview</a> </div>
+                        <button  class="button preview">Save &amp; Preview</button>
+                    </div>
                     </form>
                 </div>
 

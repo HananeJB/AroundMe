@@ -17,8 +17,7 @@ class CreateDiscoveriesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->string('author')->nullable();
-            $table->string('content');
+            $table->longText('content');
             $table->string('tagline');
             $table->string('category');
             $table->string('city');
@@ -26,6 +25,8 @@ class CreateDiscoveriesTable extends Migration
             $table->string('latitude');
             $table->string('longitude');
             $table->string('cover');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
 
         });

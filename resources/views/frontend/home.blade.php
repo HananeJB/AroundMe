@@ -194,10 +194,7 @@
                         <h4>Fitness</h4>
                         <span>18</span>
                     </a>
-                    <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Home-2"></i>
-                        <h4>Real Estate</h4>
-                        <span>14</span>
-                    </a>
+
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Chef-Hat"></i>
                         <h4>Restaurant</h4>
                         <span>22</span>
