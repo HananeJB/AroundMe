@@ -171,44 +171,53 @@
             <div class="col-md-12">
                 <div class="container_categories_box margin-top-5 margin-bottom-30">
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Hotel"></i>
-                        <h4>Hotels</h4>
+                        <h4>Hotels & Riads</h4>
                         <span>22</span>
                     </a>
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Hamburger"></i>
-                        <h4>Eat & Drink</h4>
+                        <h4>Manger & boire</h4>
                         <span>15</span>
                     </a>
-                    <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Shop-2"></i>
-                        <h4>Shops</h4>
+                    <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Tree-2"></i>
+                        <h4>Nature</h4>
                         <span>05</span>
                     </a>
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Cocktail"></i>
-                        <h4>Nightlife</h4>
+                        <h4>Vie nocturne</h4>
                         <span>12</span>
                     </a>
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Electric-Guitar"></i>
-                        <h4>Events</h4>
+                        <h4>Evenements</h4>
                         <span>08</span>
-                    </a>
-                    <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Dumbbell"></i>
-                        <h4>Fitness</h4>
-                        <span>18</span>
                     </a>
 
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Chef-Hat"></i>
-                        <h4>Restaurant</h4>
+                        <h4>Restaurants</h4>
                         <span>22</span>
                     </a>
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Couple-Sign"></i>
-                        <h4>Dance Floor</h4>
+                        <h4>Parcs d'Attraction</h4>
+                        <span>20</span>
+                    </a>
+                    <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Building"></i>
+                        <h4>Monuments</h4>
                         <span>20</span>
                     </a>
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Old-Cassette"></i>
                         <h4>Cinema</h4>
                         <span>07</span>
                     </a>
+                    <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Bicycle"></i>
+                        <h4>Sports</h4>
+                        <span>07</span>
+                    </a>
+                    <a href="listings_list_with_sidebar.html" style="background-color: #f98925;" class="utf_category_small_box_part"> <i class="im im-icon-Air-Balloon"></i>
+                        <h4>Activitées</h4>
+                        <span>07</span>
+                    </a>
+
                 </div>
-                <div class="col-md-12 centered_content"> <a href="#" class="button border margin-top-20">View More</a> </div>
+
             </div>
         </div>
     </div>
@@ -559,10 +568,13 @@
                             <div class="blog_compact_part_content">
                                 <h3>{{$discovery->title}}</h3>
                                 <ul class="blog_post_tag_part">
-                                    <li>22 January 2019</li>
+                                    <li>{{ date('d-M-Y', strtotime($discovery->created_at)) }}</li>
                                 </ul>
                                 <div class="utf_star_rating_section" data-rating="4"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+                                @php
+                                    $body = substr($discovery->content, 0, 250);
+                                @endphp
+                                <p>{!! $body !!} ...</p>
                             </div>
                         </div>
                     </a>
@@ -571,7 +583,7 @@
 
 
 
-                <div class="col-md-12 centered_content"> <a href="blog_page_right_sidebar.html" class="button border margin-top-20">View More Blog</a> </div>
+                <div class="col-md-12 centered_content"> <a href="/discoveries" class="button border margin-top-20">Voir Plus De Publications</a> </div>
             </div>
         </div>
     </section>
