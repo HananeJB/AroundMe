@@ -1,7 +1,7 @@
 @extends('layouts.backend_layout')
 
 @section('head')
-    <title>AroundMe | Add listing</title>
+    <title>AroundMe | Ajouter evenement</title>
 
 @endsection
 
@@ -13,11 +13,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Add Listing</h2>
+                        <h2>Ajouter evenement</h2>
                         <nav id="breadcrumbs">
                             <ul>
-                                <li><a href="index_1.html">Home</a></li>
-                                <li>Add Listing</li>
+                                <li><a href="/admin">Tableau de bord</a></li>
+                                <li>Ajouter evenement</li>
                             </ul>
                         </nav>
                     </div>
@@ -29,30 +29,35 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div id="utf_add_listing_part">
-                        <form action="{{ route('listing.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @foreach($errors->all() as $error)
                                 {{ $error  }}
                             @endforeach
                             <div class="add_utf_listing_section margin-top-45">
                                 <div class="utf_add_listing_part_headline_part">
-                                    <h3><i class="sl sl-icon-tag"></i> Categories & Tags</h3>
+                                    <h3><i class="sl sl-icon-tag"></i> Informations sur l'evenement</h3>
                                 </div>
                                 <div class="row with-forms">
                                     <div class="col-md-6">
-                                        <h5>Listing Title</h5>
-                                        <input type="text" class="search-field" name="listing_title" id="listing_title"
-                                               placeholder="Listing Title" value="">
+                                        <h5>Titre</h5>
+                                        <input type="text" class="search-field" name="title" id="listing_title"
+                                               placeholder="Titre" value="">
                                     </div>
                                     <div class="col-md-6">
-                                        <h5>Keywords</h5>
-                                        <input type="text" name="keywords" id="keywords" placeholder="Keywords..."
+                                        <h5>Adresse email</h5>
+                                        <input type="email" name="email" id="keywords" placeholder="adresse email..."
+                                               value="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>telephone</h5>
+                                        <input type="tel" name="telephone" id="keywords" placeholder="telephone..."
                                                value="">
                                     </div>
                                 </div>
                                 <div class="row with-forms">
                                     <div class="col-md-6">
-                                        <h5>Category</h5>
+                                        <h5>Categorie</h5>
                                         <div class="intro-search-field utf-chosen-cat-single">
                                             <select class="selectpicker default" name="category"
                                                     data-selected-text-format="count" data-size="7"
@@ -67,24 +72,44 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <h5>Tags(optional)</h5>
-                                        <div class="intro-search-field utf-chosen-cat-single">
-                                            <select class="selectpicker default" name="tags"
-                                                    data-selected-text-format="count" data-size="7" title="Select Tags">
-                                                <option>One</option>
-                                                <option>Two</option>
-                                                <option>Three</option>
-                                                <option>Four</option>
-                                                <option>Five</option>
-                                            </select>
-                                        </div>
+                                        <h5>Site web</h5>
+                                        <input type="text" name="website" id="keywords" placeholder="Site web..."
+                                               value="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Facebook</h5>
+                                        <input type="text" name="facebook" id="keywords" placeholder="Facebook..."
+                                               value="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Twitter</h5>
+                                        <input type="text" name="twitter" id="keywords" placeholder="Twitter..."
+                                               value="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Instagram</h5>
+                                        <input type="text" name="instagram" id="keywords" placeholder="Instagram..."
+                                               value="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Youtube</h5>
+                                        <input type="text" name="youtube" id="keywords" placeholder="Youtube..."
+                                               value="">
                                     </div>
                                 </div>
                                 <div class="row with-forms">
                                     <div class="col-md-12">
-                                        <h5>Listing Tags</h5>
-                                        <input type="text" class="search-field" name="listing_tags" id="listing_title"
-                                               placeholder="Listing Tags" value="">
+                                        <h5>Tags</h5>
+                                        <input type="text" class="search-field" name="tags" id="listing_title"
+                                               placeholder="Tags" value="">
+                                    </div>
+                                </div>
+                                <div class="row with-forms">
+                                    <div class="col-md-12">
+
+                                            <h5>Description</h5>
+                                            <textarea name="description" cols="40" rows="3" id="summernote" placeholder="Description..." spellcheck="true"></textarea>
+
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +121,7 @@
                                 <div class="utf_submit_section">
                                     <div class="row with-forms">
                                         <div class="col-md-6">
-                                            <h5>City</h5>
+                                            <h5>Ville</h5>
                                             <div class="intro-search-field utf-chosen-cat-single">
                                                 <select class="selectpicker default" name="city"
                                                         data-selected-text-format="count" data-size="7"
@@ -115,8 +140,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <h5>Address</h5>
-                                            <input type="text" class="input-text" name="address" id="address"
+                                            <h5>Addresse</h5>
+                                            <input type="text" class="input-text" name="adresse" id="address"
                                                    placeholder="Address" value="">
                                         </div>
                                         <div class="col-md-12">
@@ -148,6 +173,7 @@
                                 <div class="utf_add_listing_part_headline_part">
                                     <h3><i class="sl sl-icon-picture"></i> Images</h3>
                                 </div>
+                                </div>
                                 <div class="row with-forms">
                                     <div class="utf_submit_section col-md-4">
                                         <h4>Logo</h4>
@@ -168,154 +194,32 @@
 
                                     </div>
                                 </div>
-                            </div>
+
+
+
 
                             <div class="add_utf_listing_section margin-top-45">
                                 <div class="utf_add_listing_part_headline_part">
-                                    <h3><i class="sl sl-icon-list"></i> Name & Description</h3>
+                                    <h3><i class="sl sl-icon-home"></i> Programme</h3>
                                 </div>
                                 <div class="row with-forms">
                                     <div class="col-md-6">
-                                        <h5>Name</h5>
-                                        <input type="text" name="name" placeholder="Name">
+                                        <h5>Date début</h5>
+                                        <input type="date" class="search-field" name="startdate" id="listing_title"
+                                                value="">
                                     </div>
                                     <div class="col-md-6">
-                                        <h5>Email</h5>
-                                        <input type="text" name="email" placeholder="Email">
+                                        <h5>Date fin</h5>
+                                        <input type="date" name="enddate" id="keywords" placeholder="adresse email..."
+                                               value="">
                                     </div>
-                                    <div class="col-md-6">
-                                        <h5>Title</h5>
-                                        <input type="text" name="title" placeholder="Title">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h5>Tagline</h5>
-                                        <input type="text" name="tagline" placeholder="Tagline">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h5>Description</h5>
-                                        <textarea  name="description" cols="40" rows="3" id="description"
-                                                   placeholder="Description..." spellcheck="true"></textarea>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="add_utf_listing_section margin-top-45">
-                                <div class="utf_add_listing_part_headline_part">
-                                    <h3><i class="sl sl-icon-home"></i> Amenities</h3>
                                 </div>
-                                <div class="checkboxes in-row amenities_checkbox">
-                                    <ul>
-                                        <li>
-                                            <input id="check-a" type="checkbox" name="amenities[]">
-                                            <label for="check-a">Car Parking</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-b" type="checkbox" name="amenities[]">
-                                            <label for="check-b">Takes Reservations</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-c" type="checkbox" name="amenities[]">
-                                            <label for="check-c">Street Parking</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-d" type="checkbox" name="amenities[]">
-                                            <label for="check-d">Elevator in Building</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-e" type="checkbox" name="amenities[]">
-                                            <label for="check-e">Outdoor Seating</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-f" type="checkbox" name="amenities[]">
-                                            <label for="check-f">Friendly Workspace</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-g" type="checkbox" name="amenities[]">
-                                            <label for="check-g">Wireless Internet</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-h" type="checkbox" name="amenities[]">
-                                            <label for="check-h">Good for Kids</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-i" type="checkbox" name="amenities[]">
-                                            <label for="check-i">Events</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-j" type="checkbox" name="amenities[]">
-                                            <label for="check-j">Smoking Allowed</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-k" type="checkbox" name="amenities[]">
-                                            <label for="check-k">Wheelchair Accessible</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-l" type="checkbox" name="amenities[]">
-                                            <label for="check-l">Accepted Bank Cards</label>
-                                        </li>
-                                    </ul>
-                                </div>
+
                             </div>
 
 
-
-
-                            <div class="add_utf_listing_section margin-top-45">
-                                <div class="utf_add_listing_part_headline_part">
-                                    <h3><i class="sl sl-icon-docs"></i> Your Listing Feature</h3>
-                                </div>
-                                <div class="checkboxes in-row amenities_checkbox">
-                                    <ul>
-                                        <li>
-                                            <input id="check-a1" name="features[]" value="Accepts Credit Cards"
-                                                   type="checkbox">
-                                            <label for="check-a1">Accepts Credit Cards</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-b1" name="features[]" value="Smoking Allowed"
-                                                   type="checkbox" name="check">
-                                            <label for="check-b1">Smoking Allowed</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-c1" name="features[]" value="Bike Parking" type="checkbox"
-                                                   name="check">
-                                            <label for="check-c1">Bike Parking</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-d1" name="features[]" value="Hostels" type="checkbox"
-                                                   name="check">
-                                            <label for="check-d1">Hostels</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-e1" name="features[]" value="Accepts Credit Cards"
-                                                   type="checkbox" name="check">
-                                            <label for="check-e1">Wheelchair Accessible</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-f1" name="features[]" value="Wheelchair Internet"
-                                                   type="checkbox" name="check">
-                                            <label for="check-f1">Wheelchair Internet</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-g1" name="features[]" value="Wheelchair Accessible"
-                                                   type="checkbox" name="check">
-                                            <label for="check-g1">Wheelchair Accessible</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-h1" name="features[]" value="Parking Street"
-                                                   type="checkbox" name="check">
-                                            <label for="check-h1">Parking Street</label>
-                                        </li>
-                                        <li>
-                                            <input id="check-i1" name="features[]" value="Wireless Internet"
-                                                   type="checkbox" name="check">
-                                            <label for="check-i1">Wireless Internet</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <button type="submit" class="button preview"><i class="fa fa-arrow-circle-right"></i> Save &
-                                Preview
+                            <button type="submit" class="button preview"><i class="fa fa-arrow-circle-right"></i> Enregistrer
                             </button>
                         </form>
                     </div>
@@ -333,4 +237,49 @@
 
 
 
+@section('custom_js')
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Description',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+
+    <script src="/scripts/jquery-3.4.1.min.js"></script>
+    <script src="/scripts/chosen.min.js"></script>
+    <script src="/scripts/slick.min.js"></script>
+    <script src="/scripts/rangeslider.min.js"></script>
+    <script src="/scripts/bootstrap-select.min.js"></script>
+    <script src="/scripts/magnific-popup.min.js"></script>
+    <script src="/scripts/jquery-ui.min.js"></script>
+    <script src="/scripts/mmenu.js"></script>
+    <script src="/scripts/tooltips.min.js"></script>
+    <script src="/scripts/color_switcher.js"></script>
+    <script src="/scripts/jquery_custom.js"></script>
+
+    <!-- Style Switcher -->
+
+
+    <!-- Maps -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+    <script src="/scripts/infobox.min.js"></script>
+    <script src="/scripts/markerclusterer.js"></script>
+    <script src="/scripts/maps.js"></script>
+
+    <script src="/scripts/dropzone.js"></script>
+@endsection
 

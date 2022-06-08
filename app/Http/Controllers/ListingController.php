@@ -32,6 +32,7 @@ class ListingController extends Controller
             $path_gallery = $request->file('gallery')->store('images');
             $listing= new Listing;
             $listing->listing_title=$request->listing_title ;
+            $listing->status=$request->listing_title ;
             $listing->keywords=$request->keywords ;
             $listing->category=$request->category ;
             $listing->cover=$path_logo ;
@@ -68,6 +69,7 @@ class ListingController extends Controller
 
 
             $listing->save();
+
 
 
 

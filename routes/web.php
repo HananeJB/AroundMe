@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ListingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,7 @@ Route::get('/register_lisitng',[HomeController::class,'add_admin']);
 
 Route::resource('listing', ListingController::class);
 Route::resource('discoveries',DiscoveryController::class);
+Route::resource('events',EventController::class);
 
 
 

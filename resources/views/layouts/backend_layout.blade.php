@@ -23,30 +23,30 @@
         <div class="utf_dashboard_navigation js-scrollbar ps ps--active-x">
             <div class="utf_dashboard_navigation_inner_block" style="max-height: 1488px;">
                 <ul>
-                    <li><a href="dashboard.html"><i class="sl sl-icon-layers"></i> Dashboard</a></li>
-                    <li class="active"><a href="dashboard_add_listing.html"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
+                    <li><a href="/"><i class="sl sl-icon-layers"></i> Tableau de bord</a></li>
+                    <li class="active"><a href="/listing"><i class="sl sl-icon-plus"></i> Ajouter Annonce</a></li>
                     <li>
-                        <a href="javascript:void(0)"><i class="sl sl-icon-layers"></i> My Listings</a>
+                        <a href="javascript:void(0)"><i class="sl sl-icon-layers"></i> Mes annonces</a>
                         <ul>
-                            <li><a href="dashboard_my_listing.html">Active <span class="nav-tag green">10</span></a></li>
-                            <li><a href="dashboard_my_listing.html">Pending <span class="nav-tag yellow">4</span></a></li>
-                            <li><a href="dashboard_my_listing.html">Expired <span class="nav-tag red">8</span></a></li>
+                            <li><a href="/listingl">Active <span class="nav-tag green">10</span></a></li>
+                            <li><a href="/listingl">En attente <span class="nav-tag yellow">4</span></a></li>
+                            <li><a href="/listing">Expirée <span class="nav-tag red">8</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="dashboard_bookings.html"><i class="sl sl-icon-docs"></i> Bookings</a></li>
+                    <li><a href="dashboard_bookings.html"><i class="sl sl-icon-docs"></i> Réservations</a></li>
                     <li><a href="dashboard_messages.html"><i class="sl sl-icon-envelope-open"></i> Messages</a></li>
-                    <li><a href="dashboard_wallet.html"><i class="sl sl-icon-wallet"></i> Wallet</a></li>
+                    <li><a href="dashboard_wallet.html"><i class="sl sl-icon-wallet"></i> Portefeuille</a></li>
                     <li>
-                        <a href="javascript:void(0)"><i class="sl sl-icon-star"></i> Reviews</a>
+                        <a href="javascript:void(0)"><i class="sl sl-icon-star"></i> Avis</a>
                         <ul>
-                            <li><a href="dashboard_visitor_review.html">Visitor Reviews <span class="nav-tag green">4</span></a></li>
-                            <li><a href="dashboard_submitted_review.html">Submitted Reviews <span class="nav-tag yellow">5</span></a></li>
+                            <li><a href="dashboard_visitor_review.html">Avis des visiteurs <span class="nav-tag green">4</span></a></li>
+                            <li><a href="dashboard_submitted_review.html">Avis soumis <span class="nav-tag yellow">5</span></a></li>
                         </ul>
                     </li>
                     <li><a href="dashboard_bookmark.html"><i class="sl sl-icon-heart"></i> Bookmark</a></li>
-                    <li><a href="dashboard_my_profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>
-                    <li><a href="dashboard_change_password.html"><i class="sl sl-icon-key"></i> Change Password</a></li>
-                    <li><a href="index_1.html"><i class="sl sl-icon-power"></i> Logout</a></li>
+                    <li><a href="dashboard_my_profile.html"><i class="sl sl-icon-user"></i> Mon profil</a></li>
+                    <li><a href="dashboard_change_password.html"><i class="sl sl-icon-key"></i> Changer mot de passe</a></li>
+                    <li><a href="{{ route('logout') }}"><i class="sl sl-icon-power"></i> Se déconnecter</a></li>
                 </ul>
             </div>
             <div class="ps__rail-x" style="width: 260px; left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 244px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>

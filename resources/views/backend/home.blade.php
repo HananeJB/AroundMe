@@ -13,36 +13,6 @@
     <!-- Dashboard -->
     <div id="dashboard">
         <a href="#" class="utf_dashboard_nav_responsive"><i class="fa fa-reorder"></i> Dashboard Sidebar Menu</a>
-        <div class="utf_dashboard_navigation js-scrollbar">
-            <div class="utf_dashboard_navigation_inner_block">
-                <ul>
-                    <li class="active"><a href="dashboard.html"><i class="sl sl-icon-layers"></i> Dashboard</a></li>
-                    <li><a href="dashboard_add_listing.html"><i class="sl sl-icon-plus"></i> Add Listing</a></li>
-                    <li>
-                        <a href="#"><i class="sl sl-icon-layers"></i> My Listings</a>
-                        <ul>
-                            <li><a href="dashboard_my_listing.html">Active <span class="nav-tag green">10</span></a></li>
-                            <li><a href="dashboard_my_listing.html">Pending <span class="nav-tag yellow">4</span></a></li>
-                            <li><a href="dashboard_my_listing.html">Expired <span class="nav-tag red">8</span></a></li>
-                        </ul>
-                    </li>
-                    <li><a href="dashboard_bookings.html"><i class="sl sl-icon-docs"></i> Bookings</a></li>
-                    <li><a href="dashboard_messages.html"><i class="sl sl-icon-envelope-open"></i> Messages</a></li>
-                    <li><a href="dashboard_wallet.html"><i class="sl sl-icon-wallet"></i> Wallet</a></li>
-                    <li>
-                        <a href="#"><i class="sl sl-icon-star"></i> Reviews</a>
-                        <ul>
-                            <li><a href="dashboard_visitor_review.html">Visitor Reviews <span class="nav-tag green">4</span></a></li>
-                            <li><a href="dashboard_submitted_review.html">Submitted Reviews <span class="nav-tag yellow">5</span></a></li>
-                        </ul>
-                    </li>
-                    <li><a href="dashboard_bookmark.html"><i class="sl sl-icon-heart"></i> Bookmark</a></li>
-                    <li><a href="dashboard_my_profile.html"><i class="sl sl-icon-user"></i> My Profile</a></li>
-                    <li><a href="dashboard_change_password.html"><i class="sl sl-icon-key"></i> Change Password</a></li>
-                    <li><a href="index_1.html"><i class="sl sl-icon-power"></i> Logout</a></li>
-                </ul>
-            </div>
-        </div>
         <div class="utf_dashboard_content">
             <div id="titlebar" class="dashboard_gradient">
                 <div class="row">
@@ -50,8 +20,8 @@
                         <h2>Dashboard</h2>
                         <nav id="breadcrumbs">
                             <ul>
-                                <li><a href="index_1.html">Home</a></li>
-                                <li>Dashboard</li>
+                                <li><a href="/">Acceuil</a></li>
+                                <li>Tableau de bord</li>
                             </ul>
                         </nav>
                     </div>
@@ -61,7 +31,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="notification success closeable margin-bottom-30">
-                        <p>You are currently signed in as <strong>Jonathon Cristy</strong> Has Been Approved!</p>
+                        <p>Content de vous revoir, <strong>{{Auth::user()->name}} {{Auth::user()->lastname}}</strong> !</p>
                         <a class="close" href="#"></a>
                     </div>
                 </div>
@@ -71,8 +41,8 @@
                 <div class="col-lg-2 col-md-6">
                     <div class="utf_dashboard_stat color-1">
                         <div class="utf_dashboard_stat_content">
-                            <h4>36</h4>
-                            <span>Published Listings</span>
+                            <h4>1</h4>
+                            <span>Annonces publiées</span>
                         </div>
                         <div class="utf_dashboard_stat_icon"><i class="im im-icon-Map2"></i></div>
                     </div>
@@ -81,8 +51,8 @@
                 <div class="col-lg-2 col-md-6">
                     <div class="utf_dashboard_stat color-2">
                         <div class="utf_dashboard_stat_content">
-                            <h4>615</h4>
-                            <span>Pending Listings</span>
+                            <h4>0</h4>
+                            <span>Annonces en attente</span>
                         </div>
                         <div class="utf_dashboard_stat_icon"><i class="im im-icon-Add-UserStar"></i></div>
                     </div>
@@ -91,8 +61,8 @@
                 <div class="col-lg-2 col-md-6">
                     <div class="utf_dashboard_stat color-3">
                         <div class="utf_dashboard_stat_content">
-                            <h4>9128</h4>
-                            <span>Expired Listings</span>
+                            <h4>0</h4>
+                            <span>Annonces expirées</span>
                         </div>
                         <div class="utf_dashboard_stat_icon"><i class="im im-icon-Align-JustifyRight"></i></div>
                     </div>
@@ -101,8 +71,8 @@
                 <div class="col-lg-2 col-md-6">
                     <div class="utf_dashboard_stat color-4">
                         <div class="utf_dashboard_stat_content">
-                            <h4>572</h4>
-                            <span>New Feedbacks</span>
+                            <h4>0</h4>
+                            <span>Nouveaux retours</span>
                         </div>
                         <div class="utf_dashboard_stat_icon"><i class="im im-icon-Diploma"></i></div>
                     </div>
@@ -112,7 +82,7 @@
                     <div class="utf_dashboard_stat color-5">
                         <div class="utf_dashboard_stat_content">
                             <h4>572</h4>
-                            <span>Total Views</span>
+                            <span>Nombre total de vues</span>
                         </div>
                         <div class="utf_dashboard_stat_icon"><i class="im im-icon-Eye-Visible"></i></div>
                     </div>
@@ -122,7 +92,7 @@
                     <div class="utf_dashboard_stat color-6">
                         <div class="utf_dashboard_stat_content">
                             <h4>572</h4>
-                            <span>Total Reviews</span>
+                            <span>Nombre total d'avis</span>
                         </div>
                         <div class="utf_dashboard_stat_icon"><i class="im im-icon-Star"></i></div>
                     </div>

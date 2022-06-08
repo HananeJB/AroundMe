@@ -12,7 +12,7 @@
         <div id="utf_rev_slider_block" class="rev_slider home fullwidthabanner" style="display:none;" data-version="5.0.7">
             <ul>
                 <li data-index="rs-1" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-                    <img src="images/search_slider_bg_1.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
+                    <img src="/images/4.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
 
                     <div class="tp-caption centered utf_custom_caption tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0"
                          id="utf_slide_layer_item_one"
@@ -47,14 +47,14 @@
                              data-basealign="slide"
                              data-responsive_offset="off"
                              data-responsive="off"
-                             style="z-index:6;color:#fff;letter-spacing:0px;font-weight:600;">Find & Explore Top City</div>
-                        <div class="utf_rev_description_text">Business owners - over a million people view these listings every month - we highly recommend you ensure your business is properly listed.</div>
-                        <a href="#" class="button medium">View More</a>
+                             style="z-index:6;color:#fff;letter-spacing:0px;font-weight:600;">Découvrer les restaurants de <br>de la région</div>
+                        <div class="utf_rev_description_text">Aroundme est le guide parfait des bonnes tables aux alentours.</div>
+                        <a href="#" class="button medium">Voir plus</a>
                     </div>
                 </li>
 
                 <li data-index="rs-2" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-                    <img src="images/search_slider_bg_2.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
+                    <img src="/images/3.jpeg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
 
                     <div class="tp-caption centered utf_custom_caption tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0"
                          id="utf_slide_layer_item_two"
@@ -89,14 +89,14 @@
                              data-basealign="slide"
                              data-responsive_offset="off"
                              data-responsive="off"
-                             style="z-index:6;color:#fff;letter-spacing:0px;font-weight:600;">Find & Explore Top Restaurants</div>
-                        <div class="utf_rev_description_text">Business owners - over a million people view these listings every month - we highly recommend you ensure your business is properly listed.</div>
-                        <a href="#" class="button medium">View More</a>
+                             style="z-index:6;color:#fff;letter-spacing:0px;font-weight:600;">Découvrir les meilleures activités <br> selon vos envies</div>
+                        <div class="utf_rev_description_text">Trouver les activités et attractions près de chez vous à ne pas manquer</div>
+                        <a href="#" class="button medium">Voir plus</a>
                     </div>
                 </li>
 
                 <li data-index="rs-3" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-                    <img src="images/search_slider_bg_3.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
+                    <img src="/images/1.jpeg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="12000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="112" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
 
                     <div class="tp-caption centered utf_custom_caption tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0"
                          id="utf_slide_layer_item_three"
@@ -131,9 +131,9 @@
                              data-basealign="slide"
                              data-responsive_offset="off"
                              data-responsive="off"
-                             style="z-index:6;color:#fff;letter-spacing:0px;font-weight:600;">Find & Explore Nearest Bars</div>
-                        <div class="utf_rev_description_text">Business owners - over a million people view these listings every month - we highly recommend you ensure your business is properly listed.</div>
-                        <a href="#" class="button medium">View More</a>
+                             style="z-index:6;color:#fff;letter-spacing:0px;font-weight:600;">Explorer les richesses du<br>Maroc</div>
+                        <div class="utf_rev_description_text">Découvrez les merveilles cachées du Maroc grâce a notre communauté avides de découvertes et de partages</div>
+                        <a href="#" class="button medium">Voir plus</a>
                     </div>
                 </li>
             </ul>
@@ -143,28 +143,34 @@
     <div class="container main_inner_search_block margin-top-100">
         <div class="main_input_search_part">
             <div class="main_input_search_part_item">
-                <input type="text" placeholder="What are you looking for?" value=""/>
+                <input type="text" placeholder="Que cherchez-vous ?" value=""/>
             </div>
             <div class="main_input_search_part_item location">
-                <input type="text" placeholder="Search Location..." value=""/>
+                <input type="text" placeholder="Rechercher l'emplacement..." value=""/>
                 <a href="#"><i class="sl sl-icon-location"></i></a>
             </div>
             <div class="main_input_search_part_item intro-search-field">
-                <select data-placeholder="All Categories" class="selectpicker default" title="All Categories" data-selected-text-format="count" data-size="4">
-                    <option>Food & Restaurants</option>
-                    <option>Shop & Education</option>
-                    <option>Education</option>
-                    <option>Business</option>
-                    <option>Events</option>
+                <select data-placeholder="Toutes catégories" class="selectpicker default" title="All Categories" data-selected-text-format="count" data-size="4">
+                    <option>Hotels & Riads</option>
+                    <option>Manger & Boire</option>
+                    <option>Nature</option>
+                    <option>Vie nocturne</option>
+                    <option>Evenements</option>
+                    <option>Restaurants</option>
+                    <option>Parcs d'attraction</option>
+                    <option>Monuments</option>
+                    <option>Cinema</option>
+                    <option>Sport</option>
+                    <option>Activitées</option>
                 </select>
             </div>
-            <button class="button" onclick="window.location.">Search</button>
+            <button class="button" onclick="window.location.">Chercher</button>
         </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="headline_part centered margin-top-75"> Most Popular Categories<span>Browse the most desirable categories</span></h3>
+                <h3 class="headline_part centered margin-top-75">Catégories les plus populaires<span>Parcourez les catégories les plus recherchées</span></h3>
             </div>
         </div>
         <div class="row">
@@ -226,7 +232,7 @@
         <div class="container">
             <div class="row slick_carousel_slider">
                 <div class="col-md-12">
-                    <h3 class="headline_part centered margin-bottom-45"> Most Visited Places <span>Explore the greates places in the city</span> </h3>
+                    <h3 class="headline_part centered margin-bottom-45"> Lieux les plus visités <span>Explorez les meilleurs endroits de la ville</span> </h3>
                 </div>
 
                 <div class="row">
@@ -365,7 +371,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="headline_part centered margin-bottom-45">Recent Places<span>Find a places that fits your comfort</span></h3>
+                    <h3 class="headline_part centered margin-bottom-45">Places récentes<span>Trouvez un endroit qui correspond à votre confort</span></h3>
                 </div>
             </div>
             <div class="row">
@@ -375,7 +381,7 @@
                             <div class="utf_listing_categorybox">
                                 <div class="utf_listing_category_title">
                                     <span class="utf_listing_cateicon"><i class="im im-icon-Hamburger"></i></span>
-                                    <h3>Food &amp; Drinks</h3>
+                                    <h3>Manger et boire</h3>
                                 </div>
                                 <ul>
                                     <li><a href="listings_list_with_sidebar.html">Cafe</a> <span>12</span></li>
@@ -389,7 +395,7 @@
                             <div class="utf_listing_categorybox">
                                 <div class="utf_listing_category_title">
                                     <span class="utf_listing_cateicon"><i class="im im-icon-Digital-Drawing"></i></span>
-                                    <h3>Entertainment</h3>
+                                    <h3>Divertissement</h3>
                                 </div>
                                 <ul>
                                     <li><a href="listings_list_with_sidebar.html">Movie Theater</a> <span>12</span></li>
@@ -491,7 +497,7 @@
 
     <a href="listings_grid_full_width.html" class="flip-banner parallax" data-background="images/slider-bg-02.jpg" data-color="#000" data-color-opacity="0.85" data-img-width="2500" data-img-height="1666">
         <div class="flip-banner-content">
-            <h2 class="flip-visible">Browse Listings Attractions List</h2>
+            <h2 class="flip-visible">Parcourir Toutes Les Annonces</h2>
         </div>
     </a>
 
@@ -500,7 +506,7 @@
     <div class="container padding-bottom-70">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="headline_part centered margin-bottom-35 margin-top-70">Most Popular Cities/Towns <span>Discover best things to do restaurants, shopping, hotels, cafes and places<br>around the world by categories.</span></h3>
+                <h3 class="headline_part centered margin-bottom-35 margin-top-70">Evenements incontournables <span>Decouvrez les evenements locaux du moment </span></h3>
             </div>
             <div class="col-md-3">
                 <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-01.jpg">
@@ -550,7 +556,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-12 centered_content"> <a href="#" class="button border margin-top-20">View More Categories</a> </div>
+            <div class="col-md-12 centered_content"> <a href="#" class="button border margin-top-20">Afficher plus de catégories</a> </div>
         </div>
     </div>
 
@@ -584,40 +590,6 @@
 
 
                 <div class="col-md-12 centered_content"> <a href="/discoveries" class="button border margin-top-20">Voir Plus De Publications</a> </div>
-            </div>
-        </div>
-    </section>
-    <section class="fullwidth_block margin-bottom-0 padding-top-30 padding-bottom-65" data-background-color="linear-gradient(to bottom, #f9f9f9 0%, rgba(255, 255, 255, 1))">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="headline_part centered margin-bottom-40 margin-top-30">Our Company Logos</h3>
-                </div>
-                <div class="col-md-12">
-                    <div class="companie-logo-slick-carousel utf_dots_nav margin-bottom-10">
-                        <div class="item">
-                            <img src="images/brand_logo_01.png" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="images/brand_logo_02.png" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="images/brand_logo_03.png" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="images/brand_logo_04.png" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="images/brand_logo_05.png" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="images/brand_logo_06.png" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="images/brand_logo_07.png" alt="">
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

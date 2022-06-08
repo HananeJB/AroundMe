@@ -12,11 +12,16 @@ class Image extends Model
         'name',
         'path',
         'discoveries_id',
+        'events_id',
 
     ];
 
     public function discovery() {
         return $this->belongsTo(Discovery::class);
+
+    }
+    public function events() {
+        return $this->belongsTo(Event::class);
 
     }
 }

@@ -17,6 +17,7 @@ class CreateListingsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('listing_title');
+            $table->string('status');
             $table->string('keywords');
             $table->string('category');
             $table->string('tags');
