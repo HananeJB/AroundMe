@@ -18,7 +18,7 @@
                     <h2>Listing Booking</h2>
                     <nav id="breadcrumbs">
                         <ul>
-                            <li><a href="index_1.html">Home</a></li>
+                            <li><a href="/">Home</a></li>
                             <li>Listing Booking</li>
                         </ul>
                     </nav>

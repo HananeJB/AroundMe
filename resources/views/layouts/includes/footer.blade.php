@@ -1,30 +1,31 @@
+
+<div id="bottom_backto_top"><a href="#"></a></div>
 <div id="footer" class="footer_sticky_part">
     <div class="container">
         <div class="row">
             <div class="col-md-2 col-sm-3 col-xs-6">
-                <h4>Useful Links</h4>
+                <h4>Liens utiles</h4>
                 <ul class="social_footer_link">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Listing</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="/">Acceuil</a></li>
+                    <li><a href="/etablissements">Etablissements</a></li>
+                    <li><a href="/events">Evenements</a></li>
+                    <li><a href="/discoveries">Découvertes</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
             <div class="col-md-2 col-sm-3 col-xs-6">
-                <h4>My Account</h4>
+                <h4>Mon compte</h4>
                 <ul class="social_footer_link">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">My Listing</a></li>
-                    <li><a href="#">Favorites</a></li>
+                    <li><a href="#">Profil</a></li>
+                    <li><a href="#">Mes Posts</a></li>
+                    <li><a href="#">Mes Favories</a></li>
                 </ul>
             </div>
             <div class="col-md-2 col-sm-3 col-xs-6">
-                <h4>Pages</h4>
+                <h4>Business</h4>
                 <ul class="social_footer_link">
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Our Partners</a></li>
+                    <li><a href="/business">Business</a></li>
+                    <li><a href="/pricing">Prix</a></li>
                     <li><a href="#">How It Work</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                 </ul>
@@ -32,16 +33,14 @@
             <div class="col-md-2 col-sm-3 col-xs-6">
                 <h4>Help</h4>
                 <ul class="social_footer_link">
-                    <li><a href="#">Sign In</a></li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">Add Listing</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="/login">Se connecter</a></li>
+                    <li><a href="/register">Créer un compte</a></li>
+                    <li><a href="/discoveries/create">Ajouter découverte</a></li>
                 </ul>
             </div>
             <div class="col-md-4 col-sm-12 col-xs-12">
-                <h4>About Us</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
+                <h4>Aroundme</h4>
+                <p>Trouver l'endroit idéal pour se ressourcer et se détendre, en famille ou entre amis grâce à Aroundme</p>
             </div>
         </div>
 

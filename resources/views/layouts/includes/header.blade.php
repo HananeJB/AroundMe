@@ -15,13 +15,14 @@
                         <li><a href="/">Acceuil</a>
                         </li>
                         <li>
-                            <a href="listings_half_screen_map_grid.html">Etablissements</a>
+                            <a href="/etablissements">Etablissements</a>
                         </li>
                         <li>
-                            <a href="listings_half_screen_map_grid.html">Evenements</a>
+                            <a href="/evenements">Evenements</a>
                         </li>
 
                         <li><a href="/discoveries">Découvertes</a></li>
+                        <li><a href="/contact">Contact</a></li>
 
 
                     </ul>

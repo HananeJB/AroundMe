@@ -1,7 +1,7 @@
 @extends('layouts.frontend_layout')
 
 @section('head')
-    <title>AroundMe | Confirmation</title>
+    <title>AroundMe | Etablissements</title>
     <meta name="description" content="TravelGO - Premium site template for travel agencies, hotels and restaurant listing.">
 @endsection
 
@@ -19,22 +19,18 @@
                             <div class="row with-forms">
                                 <div class="col-fs-6">
                                     <div class="input-with-icon"> <i class="sl sl-icon-magnifier"></i>
-                                        <input type="text" placeholder="What are you looking for?" value=""/>
+                                        <input type="text" placeholder="Que cherchez-vous?" value=""/>
                                     </div>
                                 </div>
                                 <div class="col-fs-6">
                                     <div class="intro-search-field utf-chosen-cat-single">
-                                        <select class="selectpicker default" data-selected-text-format="count" data-size="7" title="Select Location">
-                                            <option>Afghanistan</option>
-                                            <option>Albania</option>
-                                            <option>Algeria</option>
-                                            <option>Brazil</option>
-                                            <option>Burundi</option>
-                                            <option>Bulgaria</option>
-                                            <option>Germany</option>
-                                            <option>Grenada</option>
-                                            <option>Guatemala</option>
-                                            <option>Iceland</option>
+                                        <select class="selectpicker default" data-selected-text-format="count" data-size="7" title="Sélectionnez l'emplacement">
+                                            <option>Agadir</option>
+                                            <option>Marrackech</option>
+                                            <option>Casablanca</option>
+                                            <option>Rabat</option>
+                                            <option>Essaouira</option>
+                                            <option>Fes</option>
                                         </select>
                                     </div>
                                 </div>
@@ -71,13 +67,18 @@
                                             <div class="sort-by">
                                                 <div class="utf_sort_by_select_item sort_by_margin">
                                                     <select data-placeholder="Categories:" class="utf_chosen_select_single">
-                                                        <option>Categories</option>
-                                                        <option>Restaurant</option>
-                                                        <option>Health</option>
-                                                        <option>Hotels</option>
-                                                        <option>Real Estate</option>
-                                                        <option>Fitness</option>
-                                                        <option>Shopping</option>
+                                                        <option>Catégories</option>
+                                                        <option>Hotels & Riads</option>
+                                                        <option>Manger & Boire</option>
+                                                        <option>Nature</option>
+                                                        <option>Vie nocturne</option>
+                                                        <option>Evenements</option>
+                                                        <option>Restaurants</option>
+                                                        <option>Parcs d'attraction</option>
+                                                        <option>Monuments</option>
+                                                        <option>Cinema</option>
+                                                        <option>Sport</option>
+                                                        <option>Activitées</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -285,6 +286,11 @@
         </div>
     </div>
 </div>
+<style>
+    #footer.footer_sticky_part{
+        display: none;
+    }
+</style>
 
 @endsection
 @section('custom_js')
@@ -293,3 +299,5 @@
     <script src="scripts/markerclusterer.js"></script>
     <script src="scripts/maps.js"></script>
 @endsection
+
+

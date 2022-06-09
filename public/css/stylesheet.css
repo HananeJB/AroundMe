@@ -106,6 +106,12 @@ Table Of Content
   Typography
 ============*/
 
+@media (min-width: 1367px){
+#header .container {
+    width: 90%;
+}
+}
+
 body {
 	color: #707070;
 	font-size: 15px;

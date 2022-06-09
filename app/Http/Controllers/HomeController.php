@@ -29,7 +29,7 @@ class HomeController extends Controller
         return view('frontend.home', compact('discoveries'));
     }
 
-    public function listings(){
+    public function listing(){
         return view('frontend.listings.listings');
     }
 
@@ -47,7 +47,7 @@ class HomeController extends Controller
     public function pricing(){
         return view('business.pricing');
     }
-    public function add_admin(){
+    public function packone(){
         return view('business.create_account');
     }
 
@@ -55,6 +55,22 @@ class HomeController extends Controller
 
         return view('frontend.discoveries.blog');
     }
+    public function contact(){
 
+        return view('frontend.contact');
+    }
+    public function packtwo(){
+
+        return view('business.silver');
+    }
+    public function packthree(){
+
+        return view('business.gold');
+    }
+
+    public function events(){
+
+        return view('frontend.events.events');
+    }
 
 }

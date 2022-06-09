@@ -16,9 +16,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-sm-12">
-                            <h2>Run and Grow Your Business With Listing<br>Star from Anywhere</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.</p>
-                            <a href="/pricing" class="button margin-top-25">Get Started</a> </div>
+                            <h2>Gérer et développer votre entreprise
+                                <br>Développez votre audience rapidement</h2>
+                            <p>Développez rapidement votre liste de clients. De plus, obtenez des informations sur votre audience qui vous aideront à l'optimiser au fur et à mesure. Différenciez votre entreprise de la masse de vos concurrents grâce à une page améliorée. Mettez votre travail en valeur, faites-vous remarquer, convertissez plus de prospects et bien plus encore.</p>
+                            <a href="/pricing" class="button margin-top-25">Commencer</a> </div>
                     </div>
                 </div>
             </div>
@@ -28,28 +29,36 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2 class="headline_part centered margin-top-80">How It Works? <span class="margin-top-10">Discover & connect with great local businesses</span> </h2>
+                        <h2 class="headline_part centered margin-top-80">Comment ça marche ? <span class="margin-top-10">Apprenez à commercialiser votre entreprise sur AroundMe comme un professionnel</span> </h2>
                     </div>
                 </div>
                 <div class="row container_icon">
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="box_icon_two box_icon_with_line"> <i class="im im-icon-Map-Marker2"></i>
-                            <h3>Find Interesting Place</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque Nulla finibus.</p>
-                        </div>
-                    </div>
+
 
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="box_icon_two box_icon_with_line"> <i class="im im-icon-Mail-Add"></i>
-                            <h3>Contact a Few Owners</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque Nulla finibus.</p>
+                            <h3>Atteignez plus de clients potentiels avec les publicités Aroundme</h3>
+                            <p>Entrez en contact avec davantage de clients lorsqu'ils recherchent des entreprises locales comme la vôtre.
+                                Atteignez 3 fois plus de clients potentiels
+                                Créez et diffusez votre annonce en quelques minutes
+                               </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="box_icon_two box_icon_with_line"> <i class="im im-icon-Map-Marker2"></i>
+                            <h3>Aidez les gens à vous connaître</h3>
+                            <p>
+
+                                Mettez à jour les informations sur votre entreprise afin que les gens puissent vous trouver
+                                Répondez aux avis et aux messages dès qu'ils arrivent
+                                Ajoutez des photos pour présenter le meilleur de votre entreprise</p>
                         </div>
                     </div>
 
                     <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="box_icon_two"> <i class="im im-icon-Administrator"></i>
-                            <h3>Make a Reservation</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque Nulla finibus.</p>
+                            <h3>Atteignez plus de personnes prêtes à dépenser</h3>
+                            <p> Grâce au pack Gold, votre entreprise est placé au-dessus des résultats de recherche et sur les pages de vos concurrents. Cela signifie que les clients sont plus susceptibles de vous trouver lorsqu'ils recherchent les services que vous proposez.</p>
                         </div>
                     </div>
                 </div>
@@ -60,7 +69,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h3 class="headline_part centered"> What Say Our Customers <span class="margin-top-15">Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since...</span> </h3>
+                        <h3 class="headline_part centered"> Ce que disent nos clients <span class="margin-top-15">Ce que disent les professionnels</span> </h3>
                     </div>
                 </div>
             </div>
@@ -107,37 +116,11 @@
 
 
 
-        <section class="utf_cta_area_item utf_cta_area2_block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="utf_subscribe_block clearfix">
-                            <div class="col-md-8 col-sm-7">
-                                <div class="section-heading">
-                                    <h2 class="utf_sec_title_item utf_sec_title_item2">Subscribe to Newsletter!</h2>
-                                    <p class="utf_sec_meta">
-                                        Subscribe to get latest updates and information.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-5">
-                                <div class="contact-form-action">
-                                    <form method="post">
-                                        <span class="la la-envelope-o"></span>
-                                        <input class="form-control" type="email" placeholder="Enter your email" required="">
-                                        <button class="utf_theme_btn" type="submit">Subscribe</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Footer -->
 
-        <div id="bottom_backto_top"><a href="#"></a></div>
+
+
+
 
 
 @endsection

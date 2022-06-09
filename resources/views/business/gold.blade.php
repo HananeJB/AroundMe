@@ -192,8 +192,8 @@
                             <li>Date début <span>{{date("d M Y")}}</span></li>
                             <li>Heure <span>{{date("h:i a")}}</span></li>
                             <li>date expiration <span>{{date('d M Y', strtotime('+1 month'))}}</span></li>
-                            <li>Deposit <span>500.00 MAD</span></li>
-                            <li class="total-costs">Total <span>500.00 MAD</span></li>
+                            <li>Deposit <span>2300.00 MAD</span></li>
+                            <li class="total-costs">Total <span>2300.00 MAD</span></li>
 
 
                         </ul>

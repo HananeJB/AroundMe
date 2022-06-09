@@ -48,6 +48,15 @@
                                     </span>
                                     @enderror
                                 </label>
+                            </p><p class="utf_row_form utf_form_wide_block">
+                                <label for="username2">
+                                    <input id="name" placeholder="Last Name" type="text" class="input-text @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </label>
                             </p>
                             <p class="utf_row_form utf_form_wide_block">
                                 <label for="email2">

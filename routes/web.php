@@ -38,11 +38,15 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
 /*Home Controller*/
 
 Route::get('/detailListing', [HomeController::class, 'detailListing']);
+Route::get('/etablissements', [HomeController::class, 'listing']);
 Route::get('/payment', [HomeController::class, 'payment']);
 Route::get('/business', [HomeController::class, 'businesshome']);
 Route::get('/pricing', [HomeController::class, 'pricing']);
-Route::get('/register_lisitng',[HomeController::class,'add_admin']);
-
+Route::get('/pricing/basique',[HomeController::class,'packone']);
+Route::get('/contact',[HomeController::class,'contact']);
+Route::get('/pricing/silver',[HomeController::class,'packtwo']);
+Route::get('/pricing/gold',[HomeController::class,'packthree']);
+Route::get('/evenements',[HomeController::class,'events']);
 
 
 /* CRUDS */

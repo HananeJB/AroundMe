@@ -9,25 +9,25 @@
 
 
 
-    <div class="clearfix"></div>
-    <div id="titlebar" class="gradient">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2>Choisissez l'option de paiement</h2>
-                    <nav id="breadcrumbs">
-                        <ul>
-                            <li><a href="/business">Acceuil</a></li>
-                            <li><a href="/pricing">Prix</a></li>
-                            <li>Choisissez l'option de paiement</li>
-                        </ul>
-                    </nav>
+        <div class="clearfix"></div>
+        <div id="titlebar" class="gradient">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Choisissez l'option de paiement</h2>
+                        <nav id="breadcrumbs">
+                            <ul>
+                                <li><a href="/business">Acceuil</a></li>
+                                <li><a href="/pricing">Prix</a></li>
+                                <li>Choisissez l'option de paiement</li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container margin-bottom-75">
-        <form >
+        <div class="container margin-bottom-75">
+            <form >
             <div class="row">
                 <div class="col-lg-8 col-md-8 utf_listing_payment_section">
                     <div class="utf_booking_listing_section_form margin-bottom-40">
@@ -192,22 +192,22 @@
                             <li>Date début <span>{{date("d M Y")}}</span></li>
                             <li>Heure <span>{{date("h:i a")}}</span></li>
                             <li>date expiration <span>{{date('d M Y', strtotime('+1 month'))}}</span></li>
-                            <li>Deposit <span>500.00 MAD</span></li>
-                            <li class="total-costs">Total <span>500.00 MAD</span></li>
+                            <li>Deposit <span>1700.00 MAD</span></li>
+                            <li class="total-costs">Total <span>1700.00 MAD</span></li>
 
 
                         </ul>
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
+            </form>
+        </div>
 
 
 
-    <!-- Footer -->
+        <!-- Footer -->
 
-    <div id="bottom_backto_top"><a href="#"></a></div>
+        <div id="bottom_backto_top"><a href="#"></a></div>
 
 
 @endsection

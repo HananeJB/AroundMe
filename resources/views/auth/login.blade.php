@@ -8,8 +8,6 @@
 @section('content')
 
 
-
-
         <div class="clearfix"></div>
         <div id="titlebar" class="gradient">
             <div class="container">
