@@ -33,8 +33,8 @@ class CreateListingsTable extends Migration
             $table->string('email');
             $table->string('title');
             $table->string('tagline');
-            $table->string('description');
-            $table->string('amenities');
+            $table->text('description');
+            $table->string('phone');
             $table->string('monday_open');
             $table->string('monday_closed');
             $table->string('Tuesday_open');
@@ -50,6 +50,7 @@ class CreateListingsTable extends Migration
             $table->string('Sunday_open');
             $table->string('Sunday_closed');
             $table->string('features');
+            $table->string('price');
 
 
 

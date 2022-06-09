@@ -11,10 +11,9 @@
         <div class="clearfix"></div>
         <div id="utf_listing_gallery_part" class="utf_listing_section">
             <div class="utf_listing_slider utf_gallery_container margin-bottom-0">
-                <a href="images/single-listing-01.jpg" data-background-image="images/single-listing-01.jpg" class="item utf_gallery"></a>
-                <a href="images/single-listing-02.jpg" data-background-image="images/single-listing-02.jpg" class="item utf_gallery"></a>
-                <a href="images/single-listing-03.jpg" data-background-image="images/single-listing-03.jpg" class="item utf_gallery"></a>
-                <a href="images/single-listing-04.jpg" data-background-image="images/single-listing-04.jpg" class="item utf_gallery"></a>
+                @foreach (explode(',', $listing->gallery) as $image)
+                <a href="{{$image}}" data-background-image="images/single-listing-01.jpg" class="item utf_gallery"></a>
+                @endforeach
             </div>
         </div>
 
@@ -850,5 +849,76 @@
 
 
 @section('custom_js')
+    <script src="scripts/jquery-3.4.1.min.js"></script>
+    <script src="scripts/chosen.min.js"></script>
+    <script src="scripts/slick.min.js"></script>
+    <script src="scripts/rangeslider.min.js"></script>
+    <script src="scripts/magnific-popup.min.js"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+    <script src="scripts/mmenu.js"></script>
+    <script src="scripts/tooltips.min.js"></script>
+    <script src="scripts/color_switcher.js"></script>
+    <script src="scripts/jquery_custom.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+    <script src="scripts/infobox.min.js"></script>
+    <script src="scripts/markerclusterer.js"></script>
+    <script src="scripts/maps.js"></script>
+    <link href="css/datedropper.css" rel="stylesheet" type="text/css">
+    <script src="scripts/datedropper.js"></script>
+    <script src="scripts/quantityButtons.js"></script>
+    <script src="scripts/moment.min.js"></script>
+    <script src="scripts/daterangepicker.js"></script>
+    <script>
+        $(function() {
+            $('#date-picker').daterangepicker({
+                "opens": "left",
+                // singleDatePicker: true,
+                isInvalidDate: function(date) {
+                    var disabled_start = moment('09/02/2018', 'DD/MM/YYYY');
+                    var disabled_end = moment('09/06/2018', 'DD/MM/YYYY');
+                    return date.isAfter(disabled_start) && date.isBefore(disabled_end);
+                }
+            });
+        });
 
+        $('#date-picker').on('showCalendar.daterangepicker', function(ev, picker) {
+            $('.daterangepicker').addClass('calendar-animated');
+        });
+        $('#date-picker').on('show.daterangepicker', function(ev, picker) {
+            $('.daterangepicker').addClass('calendar-visible');
+            $('.daterangepicker').removeClass('calendar-hidden');
+        });
+        $('#date-picker').on('hide.daterangepicker', function(ev, picker) {
+            $('.daterangepicker').removeClass('calendar-visible');
+            $('.daterangepicker').addClass('calendar-hidden');
+        });
+
+        function close_panel_dropdown() {
+            $('.panel-dropdown').removeClass("active");
+            $('.fs-inner-container.content').removeClass("faded-out");
+        }
+        $('.panel-dropdown a').on('click', function(e) {
+            if ($(this).parent().is(".active")) {
+                close_panel_dropdown();
+            } else {
+                close_panel_dropdown();
+                $(this).parent().addClass('active');
+                $('.fs-inner-container.content').addClass("faded-out");
+            }
+            e.preventDefault();
+        });
+        $('.panel-buttons button').on('click', function(e) {
+            $('.panel-dropdown').removeClass('active');
+            $('.fs-inner-container.content').removeClass("faded-out");
+        });
+        var mouse_is_inside = false;
+        $('.panel-dropdown').hover(function() {
+            mouse_is_inside = true;
+        }, function() {
+            mouse_is_inside = false;
+        });
+        $("body").mouseup(function() {
+            if (!mouse_is_inside) close_panel_dropdown();
+        });
+    </script>
 @endsection

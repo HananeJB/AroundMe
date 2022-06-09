@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Discovery;
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,11 +31,14 @@ class HomeController extends Controller
     }
 
     public function listing(){
-        return view('frontend.listings.listings');
+        $listings= DB::table('listings')->paginate(6);
+        return view('frontend.listings.listings',compact('listings'));
     }
 
-    public function detailListing(){
-        return view('frontend.listings.listing_loisir');
+    public function detailListing($id){
+
+        $listing = Listing::find($id);
+        return view('frontend.listings.listing_restaurant', ['listing' => $listing, 'id' => $id ], compact('listing', 'id'));
     }
     public function payment(){
         return view('frontend.payment');

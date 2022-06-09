@@ -37,7 +37,7 @@ Route::middleware(['auth', 'superadmin'])->group(function () {
 
 /*Home Controller*/
 
-Route::get('/detailListing', [HomeController::class, 'detailListing']);
+Route::get('/etablissements/detail/{id}', [HomeController::class, 'detailListing']);
 Route::get('/etablissements', [HomeController::class, 'listing']);
 Route::get('/payment', [HomeController::class, 'payment']);
 Route::get('/business', [HomeController::class, 'businesshome']);

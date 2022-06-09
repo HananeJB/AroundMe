@@ -96,161 +96,38 @@
                         </div>
                     </div>
                     <div class="row fs-listings">
+                        @foreach($listings as $listing)
                         <div class="col-lg-12 col-md-12">
-                            <div class="utf_listing_item-container list-layout"> <a href="listings_single_page_1.html" class="utf_listing_item">
+                            <div class="utf_listing_item-container list-layout"> <a href="/etablissements/detail/{{$listing->id}}" class="utf_listing_item">
                                     <div class="utf_listing_item-image">
-                                        <img src="images/utf_listing_item-01.jpg" alt="">
+                                        <img style="width: 620px; height: 430px;" src="{{$listing->cover}}" alt="">
                                         <span class="like-icon"></span>
-                                        <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span>
-                                        <span class="featured_tag">Featured</span>
+                                        <span class="tag"><i class="im im-icon-Hotel"></i> {{$listing->tags}}</span>
+                                        <span class="featured_tag">{{$listing->listing_tags}}</span>
                                         <div class="utf_listing_prige_block utf_half_list">
-                                            <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $45 - $70</span>
+                                            <span class="utf_meta_listing_price"><i class="fa fa-tag"></i>{{$listing->price}}</span>
                                             <span class="utp_approve_item"><i class="utf_approve_listing"></i></span>
                                         </div>
                                     </div>
-                                    <span class="utf_open_now">Open Now</span>
+                                    <span class="utf_open_now">{{$listing->status}}</span>
                                     <div class="utf_listing_item_content">
                                         <div class="utf_listing_item-inner">
-                                            <h3>Chontaduro Barcelona <i class="utf_approve_listing"></i></h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
+                                            <h3>{{$listing->listing_title}}<i class="utf_approve_listing"></i></h3>
+                                            <span><i class="sl sl-icon-location"></i>{{$listing->address}}</span>
+                                            <span><i class="sl sl-icon-phone"></i>{{$listing->phone}}</span>
                                             <div class="utf_star_rating_section" data-rating="4.5">
                                                 <div class="utf_counter_star_rating">(4.5)</div>
                                             </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar...</p>
+                                            @php
+                                                $body = substr($listing->description, 0, 150);
+                                            @endphp
+                                            <p>{!! $body !!}...</p>
                                         </div>
                                     </div>
                                 </a>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="utf_listing_item-container list-layout"> <a href="listings_single_page_1.html" class="utf_listing_item">
-                                    <div class="utf_listing_item-image">
-                                        <img src="images/utf_listing_item-02.jpg" alt="">
-                                        <span class="like-icon"></span>
-                                        <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span>
-                                        <div class="utf_listing_prige_block utf_half_list">
-                                            <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $25 - $45</span>
-                                            <span class="utp_approve_item"><i class="utf_approve_listing"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="utf_listing_item_content">
-                                        <div class="utf_listing_item-inner">
-                                            <h3>The Lounge & Bar</h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                            <div class="utf_star_rating_section" data-rating="5.0">
-                                                <div class="utf_counter_star_rating">(5)</div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="utf_listing_item-container list-layout"> <a href="listings_single_page_1.html" class="utf_listing_item">
-                                    <div class="utf_listing_item-image">
-                                        <img src="images/utf_listing_item-03.jpg" alt="">
-                                        <span class="like-icon"></span>
-                                        <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span>
-                                        <div class="utf_listing_prige_block utf_half_list">
-                                            <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $45 - $70</span>
-                                            <span class="utp_approve_item"><i class="utf_approve_listing"></i></span>
-                                        </div>
-                                    </div>
-                                    <span class="utf_closed">Closed</span>
-                                    <div class="utf_listing_item_content">
-                                        <div class="utf_listing_item-inner">
-                                            <h3>Westfield Sydney <i class="utf_approve_listing"></i></h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                            <div class="utf_star_rating_section" data-rating="2.0">
-                                                <div class="utf_counter_star_rating">(2)</div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="utf_listing_item-container list-layout"> <a href="listings_single_page_1.html" class="utf_listing_item">
-                                    <div class="utf_listing_item-image">
-                                        <img src="images/utf_listing_item-04.jpg" alt="">
-                                        <span class="like-icon"></span>
-                                        <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span>
-                                        <span class="featured_tag">Featured</span>
-                                        <div class="utf_listing_prige_block utf_half_list">
-                                            <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $25 - $45</span>
-                                            <span class="utp_approve_item"><i class="utf_approve_listing"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="utf_listing_item_content">
-                                        <div class="utf_listing_item-inner">
-                                            <h3>Ruby Beauty Center</h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                            <div class="utf_star_rating_section" data-rating="5.0">
-                                                <div class="utf_counter_star_rating">(5)</div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="utf_listing_item-container list-layout"> <a href="listings_single_page_1.html" class="utf_listing_item">
-                                    <div class="utf_listing_item-image">
-                                        <img src="images/utf_listing_item-05.jpg" alt="">
-                                        <span class="like-icon"></span>
-                                        <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span>
-                                        <div class="utf_listing_prige_block utf_half_list">
-                                            <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $45 - $70</span>
-                                            <span class="utp_approve_item"><i class="utf_approve_listing"></i></span>
-                                        </div>
-                                    </div>
-                                    <div class="utf_listing_item_content">
-                                        <div class="utf_listing_item-inner">
-                                            <h3>UK Fitness Club <i class="utf_approve_listing"></i></h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                            <div class="utf_star_rating_section" data-rating="4.5">
-                                                <div class="utf_counter_star_rating">(4.5)</div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="utf_listing_item-container list-layout"> <a href="listings_single_page_1.html" class="utf_listing_item">
-                                    <div class="utf_listing_item-image">
-                                        <img src="images/utf_listing_item-06.jpg" alt="">
-                                        <span class="like-icon"></span>
-                                        <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span>
-                                        <div class="utf_listing_prige_block utf_half_list">
-                                            <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $25 - $45</span>
-                                            <span class="utp_approve_item"><i class="utf_approve_listing"></i></span>
-                                        </div>
-                                    </div>
-                                    <span class="utf_closed">Closed</span>
-                                    <div class="utf_listing_item_content">
-                                        <div class="utf_listing_item-inner">
-                                            <h3>Fairmont Pacific Rim</h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                            <div class="utf_star_rating_section" data-rating="5.0">
-                                                <div class="utf_counter_star_rating">(5)</div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar...</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="row">
                         <div class="col-md-12">

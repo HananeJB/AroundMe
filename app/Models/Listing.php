@@ -27,7 +27,7 @@ class Listing extends Model
         'title',
         'tagline',
         'description',
-        'amenities',
+        'phone',
         'monday_open',
         'monday_closed',
         'Tuesday_open',
@@ -43,6 +43,7 @@ class Listing extends Model
         'Sunday_open',
         'Sunday_closed',
         'features',
+        'price',
     ];
 
 
