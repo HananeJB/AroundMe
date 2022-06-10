@@ -182,7 +182,12 @@
                     </a>
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Hamburger"></i>
                         <h4>Manger & boire</h4>
-                        <span>15</span>
+                        @php
+                        $list=['cafe', 'snack', 'Restaurant'];
+                        $count=DB::table('listings')->whereIn('tags',$list )->count();
+                        @endphp
+
+                        <span>{{$count}}</span>
                     </a>
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Tree-2"></i>
                         <h4>Nature</h4>
@@ -199,7 +204,12 @@
 
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Chef-Hat"></i>
                         <h4>Restaurants</h4>
-                        <span>22</span>
+                        <span>
+                            @php
+                                $list=['Restaurant'];
+                                $count=DB::table('listings')->whereIn('tags',$list )->count();
+                            @endphp
+                            {{$count}}</span>
                     </a>
                     <a href="listings_list_with_sidebar.html" class="utf_category_small_box_part"> <i class="im im-icon-Couple-Sign"></i>
                         <h4>Parcs d'Attraction</h4>
@@ -238,128 +248,38 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="simple_slick_carousel_block utf_dots_nav">
-                            <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-                                    <div class="utf_listing_item"> <img src="images/utf_listing_item-01.jpg" alt=""> <span class="tag"><i class="im im-icon-Chef-Hat"></i> Restaurant</span> <span class="featured_tag">Featured</span>
-                                        <span class="utf_open_now">Open Now</span>
-                                        <div class="utf_listing_item_content">
-                                            <div class="utf_listing_prige_block">
-                                                <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $25 - $55</span>
-                                                <span class="utp_approve_item"><i class="utf_approve_listing"></i></span>
+                            @foreach($listings as $listing)
+                                <div class="utf_carousel_item"> <a href="/etablissements/detail/{{$listing->id}}" class="utf_listing_item-container compact">
+                                        <div class="utf_listing_item"> <img src="{{$listing->cover}}" alt=""> <span class="tag"><i class="im im-icon-Chef-Hat"></i> {{$listing->tags}}</span> <span class="featured_tag">{{$listing->listing_tags}}</span>
+                                            @if($listing->status='open')
+
+                                                <span class="utf_open_now">Open Now</span>
+                                            @else
+                                                <span class="utf_closed">Closed</span>
+
+                                            @endif
+
+                                            <div class="utf_listing_item_content">
+                                                <div class="utf_listing_prige_block">
+                                                    <span class="utf_meta_listing_price"><i class="fa fa-tag"></i>{{$listing->price}}</span>
+                                                    <span class="utp_approve_item"><i class="utf_approve_listing"></i></span>
+                                                </div>
+                                                <h3>{{$listing->price}}</h3>
+                                                <span><i class="sl sl-icon-location"></i> {{$listing->address}}</span>
+                                                <span><i class="sl sl-icon-phone"></i> {{$listing->phone}}</span>
                                             </div>
-                                            <h3>Chontaduro Barcelona</h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
                                         </div>
-                                    </div>
-                                    <div class="utf_star_rating_section" data-rating="4.5">
-                                        <div class="utf_counter_star_rating">(4.5)</div>
-                                        <span class="utf_view_count"><i class="fa fa-eye"></i> 822+</span>
-                                        <span class="like-icon"></span>
+                                        <div class="utf_star_rating_section" data-rating="4.5">
+                                            <div class="utf_counter_star_rating">(4.5)</div>
+                                            <span class="utf_view_count"><i class="fa fa-eye"></i> 822+</span>
+                                            <span class="like-icon"></span>
 
-                                    </div>
-
-                                </a>
-                            </div>
-
-                            <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-                                    <div class="utf_listing_item"> <img src="images/utf_listing_item-02.jpg" alt=""> <span class="tag"><i class="im im-icon-Electric-Guitar"></i> Events</span>
-                                        <div class="utf_listing_item_content">
-                                            <div class="utf_listing_prige_block">
-                                                <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $45 - $70</span>
-                                            </div>
-                                            <h3>The Lounge & Bar</h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
                                         </div>
-                                    </div>
-                                    <div class="utf_star_rating_section" data-rating="4.5">
-                                        <div class="utf_counter_star_rating">(4.5)</div>
-                                        <span class="utf_view_count"><i class="fa fa-eye"></i> 822+</span>
-                                        <span class="like-icon"></span>
-                                    </div>
-                                </a>
-                            </div>
 
-                            <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-                                    <div class="utf_listing_item"> <img src="images/utf_listing_item-03.jpg" alt=""> <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span>
-                                        <span class="utf_closed">Closed</span>
-                                        <div class="utf_listing_item_content">
-                                            <div class="utf_listing_prige_block">
-                                                <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $25 - $55</span>
-                                            </div>
-                                            <h3>Westfield Sydney</h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                        </div>
-                                    </div>
-                                    <div class="utf_star_rating_section" data-rating="4.5">
-                                        <div class="utf_counter_star_rating">(4.5)</div>
-                                        <span class="utf_view_count"><i class="fa fa-eye"></i> 822+</span>
-                                        <span class="like-icon"></span>
-                                    </div>
-                                </a>
-                            </div>
+                                    </a>
+                                </div>
+                            @endforeach
 
-                            <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-                                    <div class="utf_listing_item"> <img src="images/utf_listing_item-04.jpg" alt=""> <span class="tag"><i class="im im-icon-Dumbbell"></i> Fitness</span>
-                                        <div class="utf_listing_item_content">
-                                            <div class="utf_listing_prige_block">
-                                                <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $45 - $70</span>
-                                                <span class="utp_approve_item"><i class="utf_approve_listing"></i></span>
-                                            </div>
-                                            <h3>Ruby Beauty Center</h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                        </div>
-                                    </div>
-                                    <div class="utf_star_rating_section" data-rating="4.5">
-                                        <div class="utf_counter_star_rating">(4.5)</div>
-                                        <span class="utf_view_count"><i class="fa fa-eye"></i> 822+</span>
-                                        <span class="like-icon"></span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-                                    <div class="utf_listing_item"> <img src="images/utf_listing_item-05.jpg" alt=""> <span class="tag"><i class="im im-icon-Hotel"></i> Hotels</span> <span class="featured_tag">Featured</span>
-                                        <span class="utf_closed">Closed</span>
-                                        <div class="utf_listing_item_content">
-                                            <div class="utf_listing_prige_block">
-                                                <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $45 - $70</span>
-                                            </div>
-                                            <h3>UK Fitness Club</h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                        </div>
-                                    </div>
-                                    <div class="utf_star_rating_section" data-rating="4.5">
-                                        <div class="utf_counter_star_rating">(4.5)</div>
-                                        <span class="utf_view_count"><i class="fa fa-eye"></i> 822+</span>
-                                        <span class="like-icon"></span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="utf_carousel_item"> <a href="listings_single_page_1.html" class="utf_listing_item-container compact">
-                                    <div class="utf_listing_item"> <img src="images/utf_listing_item-06.jpg" alt=""> <span class="tag"><i class="im im-icon-Chef-Hat"></i> Restaurant</span>
-                                        <span class="utf_open_now">Open Now</span>
-                                        <div class="utf_listing_item_content">
-                                            <div class="utf_listing_prige_block">
-                                                <span class="utf_meta_listing_price"><i class="fa fa-tag"></i> $25 - $45</span>
-                                                <span class="utp_approve_item"><i class="utf_approve_listing"></i></span>
-                                            </div>
-                                            <h3>Fairmont Pacific Rim</h3>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                        </div>
-                                    </div>
-                                    <div class="utf_star_rating_section" data-rating="4.5">
-                                        <div class="utf_counter_star_rating">(4.5)</div>
-                                        <span class="utf_view_count"><i class="fa fa-eye"></i> 822+</span>
-                                        <span class="like-icon"></span>
-                                    </div>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -384,10 +304,10 @@
                                     <h3>Manger et boire</h3>
                                 </div>
                                 <ul>
-                                    <li><a href="listings_list_with_sidebar.html">Cafe</a> <span>12</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Pizza Place</a> <span>05</span></li>
+                                    <li><a href="listings_list_with_sidebar.html">Cafe</a> <span>{{DB::table('listings')->where('tags','=','cafe')->count()}}</span></li>
+                                    <li><a href="listings_list_with_sidebar.html">Pizza</a> <span>05</span></li>
                                     <li><a href="listings_list_with_sidebar.html">Winery</a> <span>22</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Restaurant</a> <span>06</span></li>
+                                    <li><a href="listings_list_with_sidebar.html">Restaurant</a> <span>{{DB::table('listings')->where('tags','=','cafe')->count()}}</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -409,13 +329,13 @@
                             <div class="utf_listing_categorybox">
                                 <div class="utf_listing_category_title">
                                     <span class="utf_listing_cateicon"><i class="sl sl-icon-support"></i></span>
-                                    <h3>Local Services</h3>
+                                    <h3>Activités</h3>
                                 </div>
                                 <ul>
-                                    <li><a href="listings_list_with_sidebar.html">Motor Machine</a> <span>12</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Car Machine</a> <span>05</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Car Wash Station</a> <span>25</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Electrician Shop</a> <span>06</span></li>
+                                    <li><a href="listings_list_with_sidebar.html">Sports</a> <span>12</span></li>
+                                    <li><a href="listings_list_with_sidebar.html">Fun</a> <span>05</span></li>
+                                    <li><a href="listings_list_with_sidebar.html">Loisirs</a> <span>25</span></li>
+                                    <li><a href="listings_list_with_sidebar.html">Parcs</a> <span>06</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -430,62 +350,6 @@
                                     <li><a href="listings_list_with_sidebar.html">Brewery</a> <span>05</span></li>
                                     <li><a href="listings_list_with_sidebar.html">Bar</a> <span>18</span></li>
                                     <li><a href="listings_list_with_sidebar.html">Pubs</a> <span>06</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 col-md-3">
-                            <div class="utf_listing_categorybox">
-                                <div class="utf_listing_category_title">
-                                    <span class="utf_listing_cateicon"><i class="sl sl-icon-graduation"></i></span>
-                                    <h3>Educational</h3>
-                                </div>
-                                <ul>
-                                    <li><a href="listings_list_with_sidebar.html">College</a> <span>12</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">School</a> <span>05</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Distance Learning</a> <span>35</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Home Tutors</a> <span>06</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 col-md-3">
-                            <div class="utf_listing_categorybox">
-                                <div class="utf_listing_category_title">
-                                    <span class="utf_listing_cateicon"><i class="im im-icon-Dumbbell"></i></span>
-                                    <h3>Health &amp; Fitness</h3>
-                                </div>
-                                <ul>
-                                    <li><a href="listings_list_with_sidebar.html">Disease</a> <span>12</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Drugs</a> <span>05</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Fitness</a> <span>15</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Nutrition</a> <span>06</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 col-md-3">
-                            <div class="utf_listing_categorybox">
-                                <div class="utf_listing_category_title">
-                                    <span class="utf_listing_cateicon"><i class="im im-icon-Homosexual"></i></span>
-                                    <h3>Lodging</h3>
-                                </div>
-                                <ul>
-                                    <li><a href="listings_list_with_sidebar.html">Hotels</a> <span>12</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Apartments</a> <span>05</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Guest Room</a> <span>18</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">City Tours</a> <span>06</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-4 col-md-3">
-                            <div class="utf_listing_categorybox">
-                                <div class="utf_listing_category_title">
-                                    <span class="utf_listing_cateicon"><i class="im im-icon-Hotel"></i></span>
-                                    <h3>Shops</h3>
-                                </div>
-                                <ul>
-                                    <li><a href="listings_list_with_sidebar.html">Bank</a> <span>12</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Furniture</a> <span>05</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Boutiques</a> <span>15</span></li>
-                                    <li><a href="listings_list_with_sidebar.html">Sport Equipment</a> <span>06</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -509,54 +373,31 @@
                 <h3 class="headline_part centered margin-bottom-35 margin-top-70">Evenements incontournables <span>Decouvrez les evenements locaux du moment </span></h3>
             </div>
             <div class="col-md-3">
-                <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-01.jpg">
+                <a href="#" class="img-box" data-background-image="images/ev2.jpg">
                     <div class="utf_img_content_box visible">
-                        <h4>Nightlife </h4>
-                        <span>18 Listings</span>
+                        <h4>Concerts</h4>
+                        <span>02 Concerts</span>
                     </div>
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-02.jpg">
+                <a href="#" class="img-box" data-background-image="images/ev5.jpg">
                     <div class="utf_img_content_box visible">
-                        <h4>Shops</h4>
-                        <span>24 Listings</span>
+                        <h4>Festivales</h4>
+                        <span>01 Festival</span>
                     </div>
                 </a>
             </div>
             <div class="col-md-6">
-                <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-03.jpg">
+                <a href="#" class="img-box" data-background-image="images/ev1.jpg">
                     <div class="utf_img_content_box visible">
-                        <h4>Restaurant</h4>
-                        <span>17 Listings</span>
+                        <h4>Culture</h4>
+                        <span>03 Evenements</span>
                     </div>
                 </a>
             </div>
-            <div class="col-md-6">
-                <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-04.jpg">
-                    <div class="utf_img_content_box visible">
-                        <h4>Outdoor Activities</h4>
-                        <span>12 Listings</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-05.jpg">
-                    <div class="utf_img_content_box visible">
-                        <h4>Hotels</h4>
-                        <span>14 Listings</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a href="listings_list_with_sidebar.html" class="img-box" data-background-image="images/popular-location-06.jpg">
-                    <div class="utf_img_content_box visible">
-                        <h4>New York</h4>
-                        <span>9 Listings</span>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-12 centered_content"> <a href="#" class="button border margin-top-20">Afficher plus d'évenements'</a> </div>
+
+            <div class="col-md-12 centered_content"> <a href="/evenements" class="button border margin-top-20">Afficher plus d'évenements</a> </div>
         </div>
     </div>
 
@@ -594,6 +435,33 @@
         </div>
     </section>
 
+    <section class="utf_cta_area_item utf_cta_area2_block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="utf_subscribe_block clearfix">
+                        <div class="col-md-8 col-sm-7">
+                            <div class="section-heading">
+                                <h2 class="utf_sec_title_item utf_sec_title_item2">S'inscrire à la Newsletter!</h2>
+                                <p class="utf_sec_meta">
+                                    Abonnez-vous pour obtenir les dernières mises à jour et informations.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-5">
+                            <div class="contact-form-action">
+                                <form method="post">
+                                    <span class="la la-envelope-o"></span>
+                                    <input class="form-control" type="email" placeholder="Enter your email" required="">
+                                    <button class="utf_theme_btn" type="submit">Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @endsection
 

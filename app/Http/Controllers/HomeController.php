@@ -26,8 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $listings=DB::table('listings')->get();
         $discoveries=DB::table('discoveries')->get();
-        return view('frontend.home', compact('discoveries'));
+        return view('frontend.home', compact('discoveries','listings'));
     }
 
     public function listing(){
@@ -36,10 +37,16 @@ class HomeController extends Controller
     }
 
     public function detailListing($id){
+        $listing = DB::table('listings')->find($id);
 
-        $listing = Listing::find($id);
-        return view('frontend.listings.listing_restaurant', ['listing' => $listing, 'id' => $id ], compact('listing', 'id'));
+        $viewresto=['Manger & boire','Vie nocturne , Restaurants'];
+        $viewhotel=["Parc d'attraction, Activitées, 'Monuments','Hotels & Riads, Sports"];
+
+            return view('frontend.listings.listing_restaurant', ['listing' => $listing, 'id' => $id ], compact('listing', 'id'));
+
+
     }
+
     public function payment(){
         return view('frontend.payment');
     }

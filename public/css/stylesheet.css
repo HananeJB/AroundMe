@@ -3060,7 +3060,7 @@ a.send-message-to-owner.button {
   Verified Style
 ============*/
 .verified-badge {
-	background-color: #54ba1d;
+	background-color: #8bc34a;
 	border-radius: 4px;
 	color: #fff;
 	text-align: center;
@@ -3402,7 +3402,7 @@ ul.listing_item_social {
 }
 .listing_item_social li a.now_open{
 	color:#ffffff;
-	background:#54ba1d;
+	background: #8bc34a;
 	border-color:#54ba1d;
 }
 .listing_item_social li a.now_open:hover{
@@ -8415,11 +8415,12 @@ section.fullwidth_block .utf_listing_item-container.list-layout{
 	display: inline-block;
 	font-size: 11px;
 	margin-left:6px;
-	background:#54ba1d;
+	background: #8bc34a;
 	font-weight: 600;
 	line-height: 18px;
 	border-radius: 4px;
-	vertical-align:middle;
+	vertical-align:
+	middle;
 }
 .utf_listing_titlebar_title .utf_star_rating_section .utf_counter_star_rating {
 	top:-2px;

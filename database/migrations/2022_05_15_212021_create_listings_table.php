@@ -51,6 +51,7 @@ class CreateListingsTable extends Migration
             $table->string('Sunday_closed');
             $table->string('features');
             $table->string('price');
+            $table->string('video');
 
 
 

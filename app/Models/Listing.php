@@ -44,6 +44,7 @@ class Listing extends Model
         'Sunday_closed',
         'features',
         'price',
+        'video'
     ];
 
 

@@ -1,7 +1,7 @@
 @extends('layouts.frontend_layout')
 
 @section('head')
-    <title>AroundMe | Confirmation</title>
+    <title>AroundMe | {{$listing->listing_title}}</title>
     <meta name="description" content="TravelGO - Premium site template for travel agencies, hotels and restaurant listing.">
 @endsection
 
@@ -12,7 +12,7 @@
         <div id="utf_listing_gallery_part" class="utf_listing_section">
             <div class="utf_listing_slider utf_gallery_container margin-bottom-0">
                 @foreach (explode(',', $listing->gallery) as $image)
-                <a href="{{$image}}" data-background-image="images/single-listing-01.jpg" class="item utf_gallery"></a>
+                <a href="{{$image}}" data-background-image="{{$image}}" class="item utf_gallery"></a>
                 @endforeach
             </div>
         </div>
@@ -22,30 +22,35 @@
                 <div class="col-lg-8 col-md-8">
                     <div id="titlebar" class="utf_listing_titlebar">
                         <div class="utf_listing_titlebar_title">
-                            <h2>The Hot and More Restaurant <span class="listing-tag">Restaurant</span></h2>
-                            <span> <a href="#utf_listing_location" class="listing-address"> <i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong </a> </span>
-                            <span class="call_now"><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
+                            <h2>{{$listing->listing_title}}<span class="listing-tag">{{$listing->tags}}</span></h2>
+                            <span> <a href="#utf_listing_location" class="listing-address"> <i class="sl sl-icon-location"></i> {{$listing->address}} </a> </span>
+                            <span class="call_now"><i class="sl sl-icon-phone"></i>{{$listing->phone}}</span>
                             <div class="utf_star_rating_section" data-rating="4.5">
-                                <div class="utf_counter_star_rating">(4.5) / (14 Reviews)</div>
+                                <div class="utf_counter_star_rating">(4.5) / (14 avis)</div>
                             </div>
                             <ul class="listing_item_social">
-                                <li><a href="#"><i class="fa fa-bookmark"></i> Bookmark</a></li>
-                                <li><a href="#"><i class="fa fa-star"></i> Add Review</a></li>
-                                <li><a href="#"><i class="fa fa-flag"></i> Featured</a></li>
-                                <li><a href="#"><i class="fa fa-share"></i> Share</a></li>
-                                <li><a href="#" class="now_open">Open Now</a></li>
+                                <li><a href="#"><i class="fa fa-bookmark"></i> Signet</a></li>
+                                <li><a href="#"><i class="fa fa-star"></i> Ajouter Avis</a></li>
+                                <li><a href="#"><i class="fa fa-flag"></i> En Vedette</a></li>
+                                <li><a href="#"><i class="fa fa-share"></i> Partager</a></li>
+                                @if($listing->status='open')
+
+                                    <li><a href="#" class="now_open">Ouvert maintant</a></li>
+                                @else
+                                    <li><a href="#" class="now-closed">Fermé</a></li>
+                                @endif
+
+
                             </ul>
                         </div>
                     </div>
                     <div id="utf_listing_overview" class="utf_listing_section">
-                        <h3 class="utf_listing_headline_part margin-top-30 margin-bottom-30">Listing Description</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam.</p>
+                        <h3 class="utf_listing_headline_part margin-top-30 margin-bottom-30">Description</h3>
+                        <p>{!!$listing->description!!}</p>
                         <div id="utf_listing_tags" class="utf_listing_section listing_tags_section margin-bottom-10 margin-top-0">
-                            <a href="#"><i class="sl sl-icon-phone" aria-hidden="true"></i> +(01) 1123-254-456</a>
-                            <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i> info@example.com</a>
-                            <a href="#"><i class="sl sl-icon-globe" aria-hidden="true"></i> www.example.com</a>
+                            <a href="#"><i class="sl sl-icon-phone" aria-hidden="true"></i>{{$listing->phone}}</a>
+                            <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i>{{$listing->email}}</a>
+                            <a href="#"><i class="sl sl-icon-globe" aria-hidden="true"></i> www.{{$listing->title}}.com</a>
                         </div>
                         <div class="social-contact">
                             <a href="#" class="facebook-link"><i class="fa fa-facebook"></i> Facebook</a>
@@ -55,22 +60,37 @@
                             <a href="#" class="youtube-link"><i class="fa fa-youtube-play"></i> Youtube</a>
                         </div>
                     </div>
+                    @php
+                        $viewhotel=["Parc d'attraction, Activitées, Monuments, Hotels & Riads, Sports"]
+
+
+                    @endphp
+                    @if(DB::table('listings')->whereIn('category', $viewhotel))
+
+                        <div id="utf_listing_video" class="utf_listing_section">
+                            <h3 class="utf_listing_headline_part margin-top-50 margin-bottom-40">{{$listing->category}} Videos</h3>
+                            <div class="detail-video">
+                                <iframe width="835" height="420" src="https://www.youtube.com/embed/9o9TIwHtOJU" allowfullscreen=""></iframe>
+                            </div>
+                        </div>
+                    @else
+                        lol
+
+                    @endif
+
 
                     <div id="utf_listing_tags" class="utf_listing_section listing_tags_section">
-                        <h3 class="utf_listing_headline_part margin-top-30 margin-bottom-40">Listings Tags</h3>
-                        <a href="#"><i class="fa fa-tag" aria-hidden="true"></i> Food</a>
-                        <a href="#"><i class="fa fa-tag" aria-hidden="true"></i> Fruits</a>
-                        <a href="#"><i class="fa fa-tag" aria-hidden="true"></i> Lunch</a>
-                        <a href="#"><i class="fa fa-tag" aria-hidden="true"></i> Menu</a>
-                        <a href="#"><i class="fa fa-tag" aria-hidden="true"></i> Parking</a>
-                        <a href="#"><i class="fa fa-tag" aria-hidden="true"></i> Restaurant</a>
+                        <h3 class="utf_listing_headline_part margin-top-30 margin-bottom-40">Tags</h3>
+                        @foreach (explode(',', $listing->keywords) as $stop)
+                        <a href="#"><i class="fa fa-tag" aria-hidden="true"></i>{{$stop}}</a>
+                        @endforeach
                     </div>
 
                     <div class="utf_listing_section">
                         <h3 class="utf_listing_headline_part margin-top-50 margin-bottom-40">Pricing</h3>
                         <div class="show-more">
                             <div class="utf_pricing_list_section">
-                                <h4>Menu Listing</h4>
+                                <h4>Menu</h4>
                                 <ul>
                                     <li>
                                         <h5>Burger <sub class="ppl-offer label-light-success">20% Off</sub></h5>
@@ -104,39 +124,31 @@
                                 </ul>
                             </div>
                         </div>
-                        <a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-double-down"></i></a>
+                        <a href="#" class="show-more-button" data-more-title="Montrer plus" data-less-title="Show Less"><i class="fa fa-angle-double-down"></i></a>
                     </div>
 
                     <div id="utf_listing_amenities" class="utf_listing_section">
-                        <h3 class="utf_listing_headline_part margin-top-50 margin-bottom-40">Features</h3>
+                        <h3 class="utf_listing_headline_part margin-top-50 margin-bottom-40">Caractéristiques</h3>
                         <ul class="utf_listing_features checkboxes margin-top-0">
-                            <li>Air Conditioned</li>
-                            <li>Swimming Pool</li>
-                            <li>Room Service</li>
-                            <li>Luxury Bedding</li>
-                            <li>Free Wifi</li>
-                            <li>Bath Towel</li>
-                            <li>Wireless Internet</li>
-                            <li>Free Parking on premises</li>
-                            <li>Free Parking on Street</li>
-                            <li>Live Music</li>
-                            <li>Indoor Pool</li>
+                            @foreach (explode(',', $listing->features) as $stop)
+                            <li>{{$stop}}</li>
+                            @endforeach
                         </ul>
                     </div>
 
                     <div id="utf_listing_faq" class="utf_listing_section">
-                        <h3 class="utf_listing_headline_part margin-top-50 margin-bottom-40">Listing FAQ's</h3>
+                        <h3 class="utf_listing_headline_part margin-top-50 margin-bottom-40">FAQ's</h3>
                         <div class="style-2">
                             <div class="accordion">
-                                <h3><span class="ui-accordion-header-icon ui-icon ui-accordion-icon"></span><i class="sl sl-icon-plus"></i> (1) How to Open an Account?</h3>
+                                <h3><span class="ui-accordion-header-icon ui-icon ui-accordion-icon"></span><i class="sl sl-icon-plus"></i> (1) Est ce un endroit familiale ?</h3>
                                 <div>
                                     <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum is simply dummy text of the printing and type setting industry.</p>
                                 </div>
-                                <h3><span class="ui-accordion-header-icon ui-icon ui-accordion-icon"></span><i class="sl sl-icon-plus"></i> (2) How to Add Listing?</h3>
+                                <h3><span class="ui-accordion-header-icon ui-icon ui-accordion-icon"></span><i class="sl sl-icon-plus"></i> (2) Est ce que c'est un endroit ideal pour travailler ou étudier ?</h3>
                                 <div>
                                     <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum is simply dummy text of the printing and type setting industry.</p>
                                 </div>
-                                <h3><span class="ui-accordion-header-icon ui-icon ui-accordion-icon"></span><i class="sl sl-icon-plus"></i> (3) What is Featured Listing?</h3>
+                                <h3><span class="ui-accordion-header-icon ui-icon ui-accordion-icon"></span><i class="sl sl-icon-plus"></i> (3) Est ce que le pass vaccinale est obligatoire ?</h3>
                                 <div>
                                     <p>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum is simply dummy text of the printing and type setting industry.</p>
                                 </div>
@@ -145,22 +157,22 @@
                     </div>
 
                     <div id="utf_listing_location" class="utf_listing_section">
-                        <h3 class="utf_listing_headline_part margin-top-60 margin-bottom-40">Location</h3>
+                        <h3 class="utf_listing_headline_part margin-top-60 margin-bottom-40">Localisation</h3>
                         <div id="utf_single_listing_map_block">
-                            <div id="utf_single_listingmap" data-latitude="36.778259" data-longitude="-119.417931" data-map-icon="im im-icon-Hamburger"></div>
+                            <div id="utf_single_listingmap" data-latitude="{{$listing->latitude}}" data-longitude="{{$listing->longitude}}" data-map-icon="im im-icon-Hamburger"></div>
                             <a href="#" id="utf_street_view_btn">Street View</a>
                         </div>
                     </div>
                     <div id="utf_listing_reviews" class="utf_listing_section">
-                        <h3 class="utf_listing_headline_part margin-top-75 margin-bottom-20">Reviews <span>(08)</span></h3>
+                        <h3 class="utf_listing_headline_part margin-top-75 margin-bottom-20">Avis <span>(08)</span></h3>
                         <div class="clearfix"></div>
                         <div class="reviews-container">
                             <div class="row">
                                 <div class="col-lg-3">
                                     <div id="review_summary">
                                         <strong>4.5</strong>
-                                        <em>Superb Reviews</em>
-                                        <small>Out of 15 Reviews</small>
+                                        <em>Superb avis</em>
+                                        <small>Out of 15 avis</small>
                                     </div>
                                 </div>
                                 <div class="col-lg-9">
@@ -293,8 +305,8 @@
                         <div class="clearfix"></div>
                     </div>
                     <div id="utf_add_review" class="utf_add_review-box">
-                        <h3 class="utf_listing_headline_part margin-bottom-20">Add Your Review</h3>
-                        <span class="utf_leave_rating_title">Your email address will not be published.</span>
+                        <h3 class="utf_listing_headline_part margin-bottom-20">Ajoutez votre avis</h3>
+                        <span class="utf_leave_rating_title">Votre adresse email ne sera pas publiée.</span>
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="clearfix"></div>
@@ -324,7 +336,7 @@
                             <fieldset>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label>Name:</label>
+                                        <label>Nom:</label>
                                         <input type="text" placeholder="Name" value=""/>
                                     </div>
                                     <div class="col-md-4">
@@ -332,16 +344,16 @@
                                         <input type="text" placeholder="Email" value=""/>
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Subject:</label>
+                                        <label>Commentaire:</label>
                                         <input type="text" placeholder="Subject" value=""/>
                                     </div>
                                 </div>
                                 <div>
-                                    <label>Review:</label>
+                                    <label>Avis:</label>
                                     <textarea cols="40" placeholder="Your Message..." rows="3"></textarea>
                                 </div>
                             </fieldset>
-                            <button class="button">Submit Review</button>
+                            <button class="button">Poster Avis</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -349,21 +361,19 @@
 
                 <!-- Sidebar -->
                 <div class="col-lg-4 col-md-4 margin-top-75 sidebar-search">
-                    <div class="verified-badge with-tip margin-bottom-30" data-tip-content="Listing has been verified and belongs business owner or manager."> <i class="sl sl-icon-check"></i> Now Available</div>
+                    <div class="verified-badge with-tip margin-bottom-30" data-tip-content="Listing has been verified and belongs business owner or manager."> <i class="sl sl-icon-check"></i> Maintenant disponible</div>
                     <div class="utf_box_widget booking_widget_box">
-                        <h3><i class="fa fa-calendar"></i> Booking
-                            <div class="price">
-                                <span>185$<small>person</small></span>
-                            </div>
+                        <h3><i class="fa fa-calendar"></i> Reserver
+
                         </h3>
                         <div class="row with-forms margin-top-0">
                             <div class="col-lg-12 col-md-12 select_date_box">
-                                <input type="text" id="date-picker" placeholder="Select Date" readonly="readonly">
+                                <input type="text" id="date-picker" placeholder="Sélectionner une date" readonly="readonly">
                                 <i class="fa fa-calendar"></i>
                             </div>
                             <div class="col-lg-12">
                                 <div class="panel-dropdown time-slots-dropdown">
-                                    <a href="#">Choose Time Slot...</a>
+                                    <a href="#">Choisissez le créneau horaire...</a>
                                     <div class="panel-dropdown-content padding-reset">
                                         <div class="panel-dropdown-scrollable">
                                             <div class="time-slot">
@@ -441,14 +451,14 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="panel-dropdown">
-                                    <a href="#">Guests <span class="qtyTotal" name="qtyTotal">1</span></a>
+                                    <a href="#">Invités <span class="qtyTotal" name="qtyTotal">1</span></a>
                                     <div class="panel-dropdown-content">
                                         <div class="qtyButtons">
                                             <div class="qtyTitle">Adults</div>
                                             <input type="text" name="qtyInput" value="1">
                                         </div>
                                         <div class="qtyButtons">
-                                            <div class="qtyTitle">Childrens</div>
+                                            <div class="qtyTitle">Enfants</div>
                                             <input type="text" name="qtyInput" value="1">
                                         </div>
                                     </div>
@@ -457,22 +467,36 @@
                             <div class="with-forms margin-top-0">
                                 <div class="col-lg-12 col-md-12">
                                     <select class="utf_chosen_select_single" >
-                                        <option label="Select Time">Select Time</option>
+                                        <option label="Select Time">Sélectionnez l'heure</option>
                                         <option>Lunch</option>
                                         <option>Dinner</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
-                        <a href="listing_booking.html" class="utf_progress_button button fullwidth_block margin-top-5">Request Booking</a>
-                        <button class="like-button add_to_wishlist"><span class="like-icon"></span> Add to Wishlist</button>
+                        <a href="listing_booking.html" class="utf_progress_button button fullwidth_block margin-top-5">Demande de réservation</a>
+                        <button class="like-button add_to_wishlist"><span class="like-icon"></span> Ajouter aux favories</button>
                         <div class="clearfix"></div>
                     </div>
+                    <div class="opening-hours margin-top-35">
+                        <div class="utf_coupon_widget" style="background-image: url(images/coupon-bg-1.jpg);">
+                            <div class="utf_coupon_overlay"></div>
+                            <a href="#" class="utf_coupon_top">
+                                <h3>Réservez maintenant et obtenez 50% de réduction</h3>
+                                <div class="utf_coupon_expires_date">Date d'expiration 05/08/2019</div>
+                                <div class="utf_coupon_used"><strong>Comment utiliser?</strong> Montrez-nous simplement ce coupon sur un écran</div>
+                            </a>
+                            <div class="utf_coupon_bottom">
+                                <p>Code promo</p>
+                                <div class="utf_coupon_code">DL76T</div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="utf_box_widget margin-top-35">
-                        <h3><i class="sl sl-icon-phone"></i> Contact Info</h3>
-                        <div class="utf_hosted_by_user_title"> <a href="#" class="utf_hosted_by_avatar_listing"><img src="images/dashboard-avatar.jpg" alt=""></a>
-                            <h4><a href="#">Kathy Brown</a><span>Posted 3 Days Ago</span>
-                                <span><i class="sl sl-icon-location"></i> Lonsdale St, Melbourne</span>
+                        <h3><i class="sl sl-icon-phone"></i> Informations de contact</h3>
+                        <div class="utf_hosted_by_user_title"> <a href="#" class="utf_hosted_by_avatar_listing"><img src="{{$listing->logo}}" alt=""></a>
+                            <h4><a href="#">{{$listing->name}}</a><span>Poster le {{ date('Y-m-d', strtotime($listing->created_at)) }}</span>
+                                <span><i class="sl sl-icon-location"></i>{{$listing->city}}</span>
                             </h4>
                         </div>
                         <ul class="utf_social_icon rounded margin-top-10">
@@ -483,12 +507,13 @@
                             <li><a class="instagram" href="#"><i class="icon-instagram"></i></a></li>
                         </ul>
                         <ul class="utf_listing_detail_sidebar">
-                            <li><i class="sl sl-icon-map"></i> 12345 Little Lonsdale St, Melbourne</li>
-                            <li><i class="sl sl-icon-phone"></i> +(012) 1123-254-456</li>
-                            <li><i class="sl sl-icon-globe"></i> <a href="#">www.example.com</a></li>
-                            <li><i class="fa fa-envelope-o"></i> <a href="mailto:info@example.com">info@example.com</a></li>
+                            <li><i class="sl sl-icon-map"></i>{{$listing->address}}</li>
+                            <li><i class="sl sl-icon-phone"></i>{{$listing->phone}}</li>
+                            <li><i class="sl sl-icon-globe"></i> <a href="#">www.{{$listing->title}}.com</a></li>
+                            <li><i class="fa fa-envelope-o"></i> <a href="mailto:{{$listing->email}}">{{$listing->email}}</a></li>
                         </ul>
                     </div>
+
                     <div class="utf_box_widget margin-top-35">
                         <h3><i class="sl sl-icon-folder-alt"></i> Categories</h3>
                         <ul class="utf_listing_detail_sidebar">
@@ -501,60 +526,47 @@
                         </ul>
                     </div>
                     <div class="utf_box_widget opening-hours margin-top-35">
-                        <h3><i class="sl sl-icon-clock"></i> Business Hours</h3>
+                        <h3><i class="sl sl-icon-clock"></i> Horaires d'ouverture</h3>
                         <ul>
-                            <li>Monday <span>09:00 AM - 09:00 PM</span></li>
-                            <li>Tuesday <span>09:00 AM - 09:00 PM</span></li>
-                            <li>Wednesday <span>09:00 AM - 09:00 PM</span></li>
-                            <li>Thursday <span>09:00 AM - 09:00 PM</span></li>
-                            <li>Friday <span>09:00 AM - 09:00 PM</span></li>
-                            <li>Saturday <span>09:00 AM - 10:00 PM</span></li>
-                            <li>Sunday <span>09:00 AM - 10:00 PM</span></li>
+                            <li>Lundi <span>{{$listing->monday_open}} - {{$listing->monday_closed}}</span></li>
+                            <li>Mardi <span>{{$listing->Tuesday_open}} - {{$listing->Tuesday_closed}}</span></li>
+                            <li>Mercredi <span>{{$listing->Wednesday_open}} - {{$listing->Wednesday_closed}}</span></li>
+                            <li>Jeudi <span>{{$listing->Thursday_open}} - {{$listing->Thursday_closed}}</span></li>
+                            <li>Vendredi <span>{{$listing->Friday_open}} - {{$listing->Friday_closed}}</span></li>
+                            <li>Samedi <span>{{$listing->Saturday_open}} - {{$listing->Saturday_closed}}</span></li>
+                            <li>Dimanche <span>{{$listing->Sunday_open}} - {{$listing->Sunday_closed}}</span></li>
                         </ul>
                     </div>
-                    <div class="opening-hours margin-top-35">
-                        <div class="utf_coupon_widget" style="background-image: url(images/coupon-bg-1.jpg);">
-                            <div class="utf_coupon_overlay"></div>
-                            <a href="#" class="utf_coupon_top">
-                                <h3>Book Now & Get 50% Discount</h3>
-                                <div class="utf_coupon_expires_date">Date of Expires 05/08/2019</div>
-                                <div class="utf_coupon_used"><strong>How to use?</strong> Just show us this coupon on a screen</div>
-                            </a>
-                            <div class="utf_coupon_bottom">
-                                <p>Coupon Code</p>
-                                <div class="utf_coupon_code">DL76T</div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="utf_box_widget opening-hours margin-top-35">
-                        <h3><i class="sl sl-icon-info"></i> Additional Information</h3>
+                        <h3><i class="sl sl-icon-info"></i>Information supplémentaires</h3>
                         <ul>
-                            <li>Take Out: <span>Yes</span></li>
-                            <li>Delivery: <span>Yes</span></li>
-                            <li>Neutral Restrooms: <span>Yes</span></li>
-                            <li>Has Pool Table: <span>Yes</span></li>
-                            <li>Gender Neutral Restrooms: <span>Yes</span></li>
-                            <li>Waiter Service: <span>Yes</span></li>
+                            <li>À emporter: <span>Oui</span></li>
+                            <li>Livraison: <span>Oui</span></li>
+                            <li>Toilettes neutres: <span>Oui</span></li>
+                            <li>A une table de billard: <span>Oui</span></li>
+                            <li>Toilettes non genrées: <span>Oui</span></li>
+                            <li>Service de serveur : <span>Oui</span></li>
                         </ul>
                     </div>
                     <div class="utf_box_widget opening-hours margin-top-35">
-                        <h3><i class="sl sl-icon-envelope-open"></i> Sidebar Form</h3>
+                        <h3><i class="sl sl-icon-envelope-open"></i> Formulaire</h3>
                         <form id="contactform">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input name="name" type="text" placeholder="Name" required="">
+                                    <input name="name" type="text" placeholder="Nom" required="">
                                 </div>
                                 <div class="col-md-12">
                                     <input name="email" type="email" placeholder="Email" required="">
                                 </div>
                                 <div class="col-md-12">
-                                    <input name="phone" type="text" placeholder="Phone" required="">
+                                    <input name="phone" type="text" placeholder="Telephone" required="">
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea name="comments" cols="40" rows="2" id="comments" placeholder="Your Message" required=""></textarea>
+                                    <textarea name="comments" cols="40" rows="2" id="comments" placeholder="Votre Message" required=""></textarea>
                                 </div>
                             </div>
-                            <input type="submit" class="submit button" id="submit" value="Contact Agent">
+                            <input type="submit" class="submit button" id="submit" value="Contacter">
                         </form>
                     </div>
                     <div class="utf_box_widget opening-hours margin-top-35">
@@ -562,7 +574,7 @@
                         <span><img src="images/google_adsense.jpg" alt="" /></span>
                     </div>
                     <div class="utf_box_widget margin-top-35">
-                        <h3><i class="sl sl-icon-phone"></i> Quick Contact to Help?</h3>
+                        <h3><i class="sl sl-icon-phone"></i>Contact rapide pour vous aider ?</h3>
                         <p>Excepteur sint occaecat non proident, sunt in culpa officia deserunt mollit anim id est laborum.</p>
                         <ul class="utf_social_icon rounded">
                             <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
@@ -571,12 +583,12 @@
                             <li><a class="linkedin" href="#"><i class="icon-linkedin"></i></a></li>
                             <li><a class="instagram" href="#"><i class="icon-instagram"></i></a></li>
                         </ul>
-                        <a class="utf_progress_button button fullwidth_block margin-top-5" href="contact.html">Contact Us</a>
+                        <a class="utf_progress_button button fullwidth_block margin-top-5" href="contact.html">Contacter Nous</a>
                     </div>
                     <div class="utf_box_widget listing-share margin-top-35 margin-bottom-40 no-border">
-                        <h3><i class="sl sl-icon-pin"></i> Bookmark Listing</h3>
-                        <span>1275 People Bookmarked Listings</span>
-                        <button class="like-button"><span class="like-icon"></span> Login to Bookmark Listing</button>
+                        <h3><i class="sl sl-icon-pin"></i> Ajouter aux favoris</h3>
+                        <span>1275 personnes ont ajouté cette entreprise à leurs favoris</span>
+                        <button class="like-button"><span class="like-icon"></span> Contact rapide pour vous aider ?</button>
                         <ul class="utf_social_icon rounded margin-top-35">
                             <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
                             <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
@@ -587,12 +599,12 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="utf_box_widget opening-hours review-avg-wrapper margin-top-35">
-                        <h3><i class="sl sl-icon-star"></i>  Rating Average </h3>
+                        <h3><i class="sl sl-icon-star"></i>  Note Moyenne </h3>
                         <div class="box-inner">
                             <div class="rating-avg-wrapper text-theme clearfix">
                                 <div class="rating-avg">4.8</div>
                                 <div class="rating-after">
-                                    <div class="rating-mode">/5 Average</div>
+                                    <div class="rating-mode">/5 Moyenne</div>
 
                                 </div>
                             </div>
@@ -628,7 +640,7 @@
             <div class="container">
                 <div class="row slick_carousel_slider">
                     <div class="col-md-12">
-                        <h3 class="headline_part centered margin-bottom-25">Similar Listings</h3>
+                        <h3 class="headline_part centered margin-bottom-25">Etablissements Similaires</h3>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -767,9 +779,9 @@
                         <div class="utf_subscribe_block clearfix">
                             <div class="col-md-8 col-sm-7">
                                 <div class="section-heading">
-                                    <h2 class="utf_sec_title_item utf_sec_title_item2">Subscribe to Newsletter!</h2>
+                                    <h2 class="utf_sec_title_item utf_sec_title_item2">S'inscrire à la Newsletter!</h2>
                                     <p class="utf_sec_meta">
-                                        Subscribe to get latest updates and information.
+                                        Abonnez-vous pour obtenir les dernières mises à jour et informations.
                                     </p>
                                 </div>
                             </div>
@@ -789,59 +801,7 @@
         </section>
 
         <!-- Footer -->
-        <div id="footer" class="footer_sticky_part">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2 col-sm-3 col-xs-6">
-                        <h4>Useful Links</h4>
-                        <ul class="social_footer_link">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Listing</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-6">
-                        <h4>My Account</h4>
-                        <ul class="social_footer_link">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">My Listing</a></li>
-                            <li><a href="#">Favorites</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-6">
-                        <h4>Pages</h4>
-                        <ul class="social_footer_link">
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Our Partners</a></li>
-                            <li><a href="#">How It Work</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2 col-sm-3 col-xs-6">
-                        <h4>Help</h4>
-                        <ul class="social_footer_link">
-                            <li><a href="#">Sign In</a></li>
-                            <li><a href="#">Register</a></li>
-                            <li><a href="#">Add Listing</a></li>
-                            <li><a href="#">Pricing</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <h4>About Us</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="footer_copyright_part">Copyright © 2019 All Rights Reserved.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <div id="bottom_backto_top"><a href="#"></a></div>
 
 
@@ -849,25 +809,25 @@
 
 
 @section('custom_js')
-    <script src="scripts/jquery-3.4.1.min.js"></script>
-    <script src="scripts/chosen.min.js"></script>
-    <script src="scripts/slick.min.js"></script>
-    <script src="scripts/rangeslider.min.js"></script>
-    <script src="scripts/magnific-popup.min.js"></script>
-    <script src="scripts/jquery-ui.min.js"></script>
-    <script src="scripts/mmenu.js"></script>
-    <script src="scripts/tooltips.min.js"></script>
-    <script src="scripts/color_switcher.js"></script>
-    <script src="scripts/jquery_custom.js"></script>
+    <script src="/scripts/jquery-3.4.1.min.js"></script>
+    <script src="/scripts/chosen.min.js"></script>
+    <script src="/scripts/slick.min.js"></script>
+    <script src="/scripts/rangeslider.min.js"></script>
+    <script src="/scripts/magnific-popup.min.js"></script>
+    <script src="/scripts/jquery-ui.min.js"></script>
+    <script src="/scripts/mmenu.js"></script>
+    <script src="/scripts/tooltips.min.js"></script>
+    <script src="/scripts/color_switcher.js"></script>
+    <script src="/scripts/jquery_custom.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
-    <script src="scripts/infobox.min.js"></script>
-    <script src="scripts/markerclusterer.js"></script>
-    <script src="scripts/maps.js"></script>
+    <script src="/scripts/infobox.min.js"></script>
+    <script src="/scripts/markerclusterer.js"></script>
+    <script src="/scripts/maps.js"></script>
     <link href="css/datedropper.css" rel="stylesheet" type="text/css">
-    <script src="scripts/datedropper.js"></script>
-    <script src="scripts/quantityButtons.js"></script>
-    <script src="scripts/moment.min.js"></script>
-    <script src="scripts/daterangepicker.js"></script>
+    <script src="/scripts/datedropper.js"></script>
+    <script src="/scripts/quantityButtons.js"></script>
+    <script src="/scripts/moment.min.js"></script>
+    <script src="/scripts/daterangepicker.js"></script>
     <script>
         $(function() {
             $('#date-picker').daterangepicker({

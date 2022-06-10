@@ -92,7 +92,7 @@
                 <section class="listings-container margin-top-30">
                     <div class="row fs-switcher">
                         <div class="col-md-12">
-                            <p class="showing-results">06 Results Found</p>
+                            <p class="showing-results">{{count($listings)}} Résultat(s) trouvés</p>
                         </div>
                     </div>
                     <div class="row fs-listings">
@@ -152,7 +152,8 @@
                 </section>
                 <div class="clearfix"></div>
                 <div class="col-md-12">
-                    <div class="footer_copyright_part">Copyright © 2019 All Rights Reserved.</div>
+
+                    <div class="footer_copyright_part">AroundMe @ 2022 All Rights Reserved.</div>
                 </div>
             </div>
         </div>

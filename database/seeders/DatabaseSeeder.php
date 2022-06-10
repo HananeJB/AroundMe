@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             create_users::class,
-            create_listings::class
+            create_listings::class,
+            create_discoveries::class
 
         ]);
     }
