@@ -23,14 +23,17 @@
         <div class="utf_dashboard_navigation js-scrollbar ps ps--active-x">
             <div class="utf_dashboard_navigation_inner_block" style="max-height: 1488px;">
                 <ul>
-                    <li><a href="/"><i class="sl sl-icon-layers"></i> Tableau de bord</a></li>
-                    <li class="active"><a href="/listing"><i class="sl sl-icon-plus"></i> Ajouter Annonce</a></li>
+                    <li class="active"><a href="/"><i class="sl sl-icon-layers"></i> Tableau de bord</a></li>
+                    @php
+
+                    @endphp
+                    <li ><a href="/admin/listings"><i class="sl sl-icon-plus"></i> Ajouter Annonce</a></li>
                     <li>
                         <a href="javascript:void(0)"><i class="sl sl-icon-layers"></i> Mes annonces</a>
                         <ul>
-                            <li><a href="/listingl">Active <span class="nav-tag green">10</span></a></li>
-                            <li><a href="/listingl">En attente <span class="nav-tag yellow">4</span></a></li>
-                            <li><a href="/listing">Expirée <span class="nav-tag red">8</span></a></li>
+                            <li><a href="/admin/listings">Active <span class="nav-tag green">{{DB::table('listings')->where('etat','=','active')->count()}}</span></a></li>
+                            <li><a href="/admin/listings">En attente <span class="nav-tag yellow">{{DB::table('listings')->where('etat','=','en attente')->count()}}</span></a></li>
+                            <li><a href="/admin/listings">Expirée <span class="nav-tag red">{{DB::table('listings')->where('etat','=','expired')->count()}}</span></a></li>
                         </ul>
                     </li>
                     <li><a href="dashboard_bookings.html"><i class="sl sl-icon-docs"></i> Réservations</a></li>

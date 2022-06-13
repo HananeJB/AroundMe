@@ -122,6 +122,26 @@
                                 <p class="utf_row_form utf_form_wide_block">
                                     <label for="username2">
                                         <input id="name" placeholder="Name" type="text" class="input-text @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        @error('lastname')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </label>
+                                </p>
+                                <p class="utf_row_form utf_form_wide_block">
+                                    <label for="username2">
+                                        <input id="name" placeholder="Last name" type="text" class="input-text @error('name') is-invalid @enderror" name="lastname" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        @error('bio')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </label>
+                                </p>
+                                <p class="utf_row_form utf_form_wide_block">
+                                    <label for="username2">
+                                        <input id="name" placeholder="bio" type="text" class="input-text @error('name') is-invalid @enderror" name="bio" value="{{ old('name') }}" required autocomplete="name" autofocus>
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

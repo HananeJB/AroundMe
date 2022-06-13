@@ -44,8 +44,14 @@ class Listing extends Model
         'Sunday_closed',
         'features',
         'price',
-        'video'
+        'etat',
+        'video',
+        'user_id',
     ];
 
+    public function users() {
+        return $this->belongsTo(User::class);
+
+    }
 
 }

@@ -140,17 +140,19 @@
             <div class="tp-static-layers"></div>
         </div>
     </div>
+
     <div class="container main_inner_search_block margin-top-100">
+        <form action="{{route('listing.search')}}" enctype="multipart/form-data">
         <div class="main_input_search_part">
             <div class="main_input_search_part_item">
-                <input type="text" placeholder="Que cherchez-vous ?" value=""/>
+                <input type="text" name="search" placeholder="Que cherchez-vous ?" value=""/>
             </div>
             <div class="main_input_search_part_item location">
-                <input type="text" placeholder="Rechercher l'emplacement..." value=""/>
+                <input type="text" placeholder="Rechercher l'emplacement..." name="searchcity" value=""/>
                 <a href="#"><i class="sl sl-icon-location"></i></a>
             </div>
             <div class="main_input_search_part_item intro-search-field">
-                <select data-placeholder="Toutes catégories" class="selectpicker default" title="All Categories" data-selected-text-format="count" data-size="4">
+                <select name="category" data-placeholder="Toutes catégories" class="selectpicker default" title="All Categories" data-selected-text-format="count" data-size="4">
                     <option>Hotels & Riads</option>
                     <option>Manger & Boire</option>
                     <option>Nature</option>
@@ -166,6 +168,7 @@
             </div>
             <button class="button" onclick="window.location.">Chercher</button>
         </div>
+        </form>
     </div>
     <div class="container">
         <div class="row">
@@ -359,7 +362,9 @@
         </div>
     </section>
 
-    <a href="/etablissements" class="flip-banner parallax" data-background="images/slider-bg-02.jpg" data-color="#000" data-color-opacity="0.85" data-img-width="2500" data-img-height="1666">
+
+
+    <a href="/etablissements" class="flip-banner parallax" data-background="/images/coveer.jpg" data-color="#000" data-color-opacity="0.85" data-img-width="2500" data-img-height="1666">
         <div class="flip-banner-content">
             <h2 class="flip-visible">Parcourir Toutes Les Annonces</h2>
         </div>

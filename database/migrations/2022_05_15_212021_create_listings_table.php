@@ -52,6 +52,9 @@ class CreateListingsTable extends Migration
             $table->string('features');
             $table->string('price');
             $table->string('video');
+            $table->string('etat');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
 
 

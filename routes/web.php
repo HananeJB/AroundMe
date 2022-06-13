@@ -47,13 +47,17 @@ Route::get('/contact',[HomeController::class,'contact']);
 Route::get('/pricing/silver',[HomeController::class,'packtwo']);
 Route::get('/pricing/gold',[HomeController::class,'packthree']);
 Route::get('/evenements',[HomeController::class,'events']);
+Route::get('/resutats',[HomeController::class, 'listingsearch'])->name('listing.search');
 
 
 /* CRUDS */
+Route::group(['middleware' => 'admin',], function () {
+    Route::resource('/admin/listings', ListingController::class);
+    Route::resource('/admin/events',EventController::class);
+});
 
-Route::resource('listing', ListingController::class);
 Route::resource('discoveries',DiscoveryController::class);
-Route::resource('events',EventController::class);
+
 
 
 

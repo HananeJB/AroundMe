@@ -47,6 +47,24 @@ class HomeController extends Controller
 
     }
 
+    public function listingsearch(){
+
+        $search = request()->input('search');
+
+        $city= request()->input('searchcity');
+
+        $category= request()->input('category');
+
+        $listings = DB::table("listings")
+            ->where('city', $city)
+            ->orWhere('category', $category)
+            ->orWhere('tags', $search)
+            ->get();
+
+        return view('frontend.listings.search',compact('listings','city','search','category'));
+
+    }
+
     public function payment(){
         return view('frontend.payment');
     }

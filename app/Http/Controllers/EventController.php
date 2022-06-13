@@ -139,7 +139,7 @@ class EventController extends Controller
         $input = $request->all();
 
         if ($image = $request->file('cover')) {
-            $destinationPath = Activity::getCoverPath();
+            $destinationPath = Event::getCoverPath();
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['cover'] = "$profileImage";
@@ -165,7 +165,7 @@ class EventController extends Controller
                 Image::create([
                     'name' => $name,
                     'path' => '/images',
-                    'activity_id'=>$event_id ,
+                    'Event_id'=>$event_id ,
                 ]);
             }
         }

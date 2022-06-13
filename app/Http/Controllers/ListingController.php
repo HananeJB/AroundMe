@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ListingController extends Controller
 {
@@ -12,14 +13,16 @@ class ListingController extends Controller
     {
         $listings = Listing::latest()->paginate(5);
 
-        return view('backend.listing.index',compact('listings'))
+        return view('backend.listings.index',compact('listings'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 
+
+
     public function create()
     {
-        return view('backend.listing.create');
+        return view('backend.listings.create');
     }
 
 
@@ -40,6 +43,7 @@ class ListingController extends Controller
             $listing->gallery=$path_gallery ;
             $listing->tags=$request->tags ;
             $listing->listing_tags=$request->listing_tags ;
+            $listing->phone=$request->phone ;
             $listing->city=$request->city ;
             $listing->address=$request->address ;
             $listing->latitude=$request->latitude ;
@@ -49,8 +53,7 @@ class ListingController extends Controller
             $listing->title=$request->title;
             $listing->tagline=$request->tagline;
             $listing->description=$request->description;
-            $listing->amenities=implode('',$request->amenities);
-
+            $listing->amenities=$request->amenities;
             $listing->monday_open=$request->monday_open;
             $listing->monday_closed=$request->monday_closed;
             $listing->Tuesday_open=$request->Tuesday_open;
@@ -65,7 +68,9 @@ class ListingController extends Controller
             $listing->Saturday_closed=$request->Saturday_closed;
             $listing->Sunday_open=$request->Sunday_open;
             $listing->Sunday_closed=$request->Sunday_closed;
-            $listing->features=implode('',$request->features);
+            $listing->video=$request->video;
+            $listing->price=$request->price;
+            $listing->features=$request->features;
 
 
             $listing->save();
@@ -73,21 +78,21 @@ class ListingController extends Controller
 
 
 
-        return redirect()->route('listing.index')
+        return redirect()->route('listings.index')
             ->with('success','Listing created successfully.');
     }
 
 
     public function show(Listing $listing)
     {
-        return view('listing.show',compact('listing'));
+        return view('listings.show',compact('listing'));
     }
 
 
     public function edit(Listing $listing)
     {
 
-        return view('backend.listing.edit',compact('listing'));
+        return view('backend.listings.edit',compact('listing'));
     }
 
     /**
@@ -118,11 +123,20 @@ class ListingController extends Controller
         }
 
 
+        $path_logo = $request->file('logo')->store('images');
+        $path_cover = $request->file('cover')->store('images');
+        $path_gallery = $request->file('gallery')->store('images');
+        $listing= new Listing;
         $listing->listing_title=$request->listing_title ;
+        $listing->status=$request->listing_title ;
         $listing->keywords=$request->keywords ;
         $listing->category=$request->category ;
+        $listing->cover=$path_logo ;
+        $listing->logo=$path_cover ;
+        $listing->gallery=$path_gallery ;
         $listing->tags=$request->tags ;
         $listing->listing_tags=$request->listing_tags ;
+        $listing->phone=$request->phone ;
         $listing->city=$request->city ;
         $listing->address=$request->address ;
         $listing->latitude=$request->latitude ;
@@ -147,12 +161,14 @@ class ListingController extends Controller
         $listing->Saturday_closed=$request->Saturday_closed;
         $listing->Sunday_open=$request->Sunday_open;
         $listing->Sunday_closed=$request->Sunday_closed;
-        $listing->features=$request-> features;
+        $listing->video=$request->video;
+        $listing->price=$request->price;
+        $listing->features=$request->features;
 
         $listing->save();
 
 
-        return redirect()->route('backend.listing.index')
+        return redirect()->route('backend.listings.index')
             ->with('success','Listing updated successfully');
     }
 
@@ -161,7 +177,7 @@ class ListingController extends Controller
     {
         $listing->delete();
 
-        return redirect()->route('backend.listing.index')
+        return redirect()->route('backend.listings.index')
             ->with('success','Listing deleted successfully');
     }
 }

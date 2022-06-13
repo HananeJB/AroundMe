@@ -52,8 +52,10 @@ class create_listings extends Seeder
             'price'=>'20 MAD - 100 MAD',
             'features'=>'Climatisé ,Café bio équitable, Salades fraîches et saines, Délicieux sandwichs, Plats de pâtes copieux, Savoureuses douceurs maison',
             'status'=>'Open Now',
+            'etat'=>'active',
             'created_at'=>$date,
-            'video'=>''
+            'video'=>'',
+            'user_id'=>'2'
         ]);
         DB::table('listings')->insert([
             'listing_title'=>"L'Ardoise Gourmande",
@@ -93,8 +95,10 @@ class create_listings extends Seeder
             'price'=>'99 MAD - 250 MAD',
             'features'=>'Terrasse extérieure ,Cartes de crédit acceptées, Réservation, Bières & Vins, À emporter, Bar complet, Réservations',
             'status'=>'Open Now',
+            'etat'=>'en attente',
             'created_at'=>$date,
             'video'=>'',
+            'user_id'=>'1'
         ]);
         DB::table('listings')->insert([
             'listing_title'=>'Mister Cook',
@@ -132,8 +136,10 @@ class create_listings extends Seeder
             'price'=>'20 MAD - 89 MAD',
             'features'=>'Air Conditioned ,Waiter Service, Free Wifi',
             'status'=>'Open Now',
+            'etat'=>'active',
             'created_at'=>$date,
-            'video'=>''
+            'video'=>'',
+            'user_id'=>'3'
         ]);
 
         DB::table('listings')->insert([
@@ -179,9 +185,11 @@ Machine à café,
 Parking gratuit,
 Wifi gratuit,
 Thé gratuit',
+            'etat'=>'active',
             'status'=>'Open Now',
             'created_at'=>$date,
-            'video'=>''
+            'video'=>'',
+            'user_id'=>'3'
         ]);
 
     }

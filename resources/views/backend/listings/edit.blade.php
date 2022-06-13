@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div id="utf_add_listing_part">
-                        <form action="{{ route('listing.update',$listing->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('listings.update',$listing->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             @foreach($errors->all() as $error)

@@ -90,21 +90,7 @@
                             </div>
                         </div>
 
-                        <div class="plan featured col-md-4 col-sm-6 col-xs-12">
-                            <div class="utf_price_plan">
-                                <h3>Pay per clic</h3>
-                                <span class="value"><span></span></span>
-                                <span class="period">Pour des tarifs flexibles</span>
-                            </div>
-                            <div class="utf_price_plan_features">
-                                <ul>
-                                    <li>Listing avec bouton de réservation</li>
-                                    <li>Customiser votre page (en ajoutant des photos dans la galerie, logo, coordonnées, site web, section contacter nous)</li>
-                                    <li>24/7 Support</li>
-                                </ul>
-                                <a class="button border" href="/pricing/gold"><i class="sl sl-icon-basket"></i> Commandez</a>
-                            </div>
-                        </div>
+
 
 
                     </div>

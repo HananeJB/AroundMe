@@ -15,7 +15,7 @@
                         <li><a href="/">Home</a>
 
                         </li>
-                        <li><a href="#">Etablissements</a>
+                        <li><a href="/etablissements">Etablissements</a>
 
                         </li>
                         <li><a href="/discoveries">Evenements</a>
@@ -63,7 +63,7 @@
                         <ul>
                             <li><a href="/admin"><i class="sl sl-icon-layers"></i> Dashboard</a></li>
                             <li><a href="dashboard_my_profile.html"><i class="sl sl-icon-user"></i> Mon profil</a></li>
-                            <li><a href="/listing"><i class="sl sl-icon-list"></i> Mes Annonces</a></li>
+                            <li><a href="/admin/listings"><i class="sl sl-icon-list"></i> Mes Annonces</a></li>
                             <li><a href="dashboard_messages.html"><i class="sl sl-icon-envelope-open"></i> Messages</a></li>
                             <li><a href="dashboard_bookings.html"><i class="sl sl-icon-docs"></i> Booking</a></li>
                             <li><a href="{{ route('logout') }}"><i class="sl sl-icon-power"></i> Se déconnecter</a></li>

@@ -11,7 +11,7 @@
         <div class="clearfix"></div>
 
         <!-- Map -->
-        <div class="parallax" data-background="images/slider-bg-02.jpg" style="background-image: url(&quot;images/slider-bg-02.jpg&quot;); background-attachment: fixed; background-position: 50% -43.7407px;"><div class="parallax-overlay"></div>
+        <div class="parallax" data-background="/images/business.jpeg" style="background-image: url(&quot;images/slider-bg-02.jpg&quot;); background-attachment: fixed; background-position: 50% -43.7407px;"><div class="parallax-overlay"></div>
             <div class="utf_text_content white-font">
                 <div class="container">
                     <div class="row">

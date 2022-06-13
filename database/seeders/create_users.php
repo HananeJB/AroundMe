@@ -25,6 +25,15 @@ class create_users extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'name'=> 'coffer',
+            'lastname'=> 'Admin',
+            'email'=> 'admincoffee@gmail.com',
+            'bio'=>"Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+            'password'=> Hash::make('12345678'),
+            'user_type'=> 'Administrator'
+        ]);
+
+        DB::table('users')->insert([
             'name'=> 'Customer',
             'lastname'=> 'Hanane',
             'bio'=>"Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",

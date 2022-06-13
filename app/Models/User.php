@@ -48,4 +48,7 @@ class User extends Authenticatable
     public function discoveries(){
         return $this->hasMany(Discovery::class);
     }
+    public function listings(){
+        return $this->hasOne(Listing::class);
+    }
 }
