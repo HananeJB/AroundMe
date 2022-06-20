@@ -134,6 +134,9 @@ class EventController extends Controller
             'youtube'=> 'required',
             'cover'=> 'required',
             'tags'=> 'required',
+            'longitude'=>'required',
+            'latitude'=>'required',
+            'logo'=>'required'
         ]);
 
         $input = $request->all();
@@ -171,7 +174,7 @@ class EventController extends Controller
         }
 
 
-        return redirect()->route('backend.events.index')
+        return redirect()->view('backend.events.index')
             ->with('success','Event updated successfully');
     }
     /**
@@ -184,7 +187,7 @@ class EventController extends Controller
     {
         $event->delete();
 
-        return redirect()->route('backend.events.index')
+        return redirect()->view('backend.events.index')
             ->with('success','Event deleted successfully');
     }
 }

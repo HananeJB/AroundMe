@@ -41,132 +41,29 @@
                         </div>
                         <h4><i class="sl sl-icon-list"></i> My Listings</h4>
                         <ul>
+                            @foreach($events as $event)
                             <li>
                                 <div class="utf_list_box_listing_item">
-                                    <div class="utf_list_box_listing_item-img"><a href="#"><img src="images/utf_listing_item-01.jpg" alt=""></a></div>
+                                    <div class="utf_list_box_listing_item-img"><a href="#"><img src="{{$event->cover}}" alt=""></a></div>
                                     <div class="utf_list_box_listing_item_content">
                                         <div class="inner">
-                                            <h3>Chontaduro Barcelona</h3>
-                                            <span><i class="im im-icon-Hotel"></i> Hotels</span>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
+                                            <h3>{{$event->title}}</h3>
+                                            <span><i class="im im-icon-Hotel"></i> Event</span>
+                                            <span><i class="sl sl-icon-location"></i>{{$event->adresse}}</span>
+                                            <span><i class="sl sl-icon-phone"></i>{{$event->telephone}}</span>
                                             <div class="utf_star_rating_section" data-rating="4.5">
                                                 <div class="utf_counter_star_rating">(4.5)</div>
                                             </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.</p>
+                                            <p>{{$event->description}}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="buttons-to-right">
-                                    <a href="#" class="button gray"><i class="fa fa-pencil"></i> Edit</a>
-                                    <a href="#" class="button gray"><i class="fa fa-trash-o"></i> Delete</a>
+                                    <a href="{{ route('events.edit',$event->id) }}" class="button gray"><i class="fa fa-pencil"></i> Edit</a>
+                                    <a href="{{ route('events.destroy',$event->id) }}" class="button gray"><i class="fa fa-trash-o"></i> Delete</a>
                                 </div>
                             </li>
-                            <li>
-                                <div class="utf_list_box_listing_item">
-                                    <div class="utf_list_box_listing_item-img"><a href="#"><img src="images/utf_listing_item-02.jpg" alt=""></a></div>
-                                    <div class="utf_list_box_listing_item_content">
-                                        <div class="inner">
-                                            <h3>The Lounge & Bar</h3>
-                                            <span><i class="im im-icon-Hotel"></i> Hotels</span>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                            <div class="utf_star_rating_section" data-rating="4.5">
-                                                <div class="utf_counter_star_rating">(4.5)</div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="buttons-to-right">
-                                    <a href="#" class="button gray"><i class="fa fa-pencil"></i> Edit</a>
-                                    <a href="#" class="button gray"><i class="fa fa-trash-o"></i> Delete</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="utf_list_box_listing_item">
-                                    <div class="utf_list_box_listing_item-img"><a href="#"><img src="images/utf_listing_item-03.jpg" alt=""></a></div>
-                                    <div class="utf_list_box_listing_item_content">
-                                        <div class="inner">
-                                            <h3>Westfield Sydney</h3>
-                                            <span><i class="im im-icon-Hotel"></i> Hotels</span>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                            <div class="utf_star_rating_section" data-rating="4.5">
-                                                <div class="utf_counter_star_rating">(4.5)</div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="buttons-to-right">
-                                    <a href="#" class="button gray"><i class="fa fa-pencil"></i> Edit</a>
-                                    <a href="#" class="button gray"><i class="fa fa-trash-o"></i> Delete</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="utf_list_box_listing_item">
-                                    <div class="utf_list_box_listing_item-img"><a href="#"><img src="images/utf_listing_item-04.jpg" alt=""></a></div>
-                                    <div class="utf_list_box_listing_item_content">
-                                        <div class="inner">
-                                            <h3>Ruby Beauty Center</h3>
-                                            <span><i class="im im-icon-Hotel"></i> Hotels</span>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                            <div class="utf_star_rating_section" data-rating="4.5">
-                                                <div class="utf_counter_star_rating">(4.5)</div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="buttons-to-right">
-                                    <a href="#" class="button gray"><i class="fa fa-pencil"></i> Edit</a>
-                                    <a href="#" class="button gray"><i class="fa fa-trash-o"></i> Delete</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="utf_list_box_listing_item">
-                                    <div class="utf_list_box_listing_item-img"><a href="#"><img src="images/utf_listing_item-05.jpg" alt=""></a></div>
-                                    <div class="utf_list_box_listing_item_content">
-                                        <div class="inner">
-                                            <h3>UK Fitness Club</h3>
-                                            <span><i class="im im-icon-Hotel"></i> Hotels</span>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                            <div class="utf_star_rating_section" data-rating="4.5">
-                                                <div class="utf_counter_star_rating">(4.5)</div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="buttons-to-right">
-                                    <a href="#" class="button gray"><i class="fa fa-pencil"></i> Edit</a>
-                                    <a href="#" class="button gray"><i class="fa fa-trash-o"></i> Delete</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="utf_list_box_listing_item">
-                                    <div class="utf_list_box_listing_item-img"><a href="#"><img src="images/utf_listing_item-06.jpg" alt=""></a></div>
-                                    <div class="utf_list_box_listing_item_content">
-                                        <div class="inner">
-                                            <h3>Fairmont Pacific Rim</h3>
-                                            <span><i class="im im-icon-Hotel"></i> Hotels</span>
-                                            <span><i class="sl sl-icon-location"></i> The Ritz-Carlton, Hong Kong</span>
-                                            <span><i class="sl sl-icon-phone"></i> (415) 796-3633</span>
-                                            <div class="utf_star_rating_section" data-rating="4.5">
-                                                <div class="utf_counter_star_rating">(4.5)</div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="buttons-to-right">
-                                    <a href="#" class="button gray"><i class="fa fa-pencil"></i> Edit</a>
-                                    <a href="#" class="button gray"><i class="fa fa-trash-o"></i> Delete</a>
-                                </div>
-                            </li>
+                          @endforeach
                         </ul>
                     </div>
                     <div class="clearfix"></div>

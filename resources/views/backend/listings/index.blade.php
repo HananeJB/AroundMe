@@ -62,7 +62,7 @@
                                     <form action="{{ route('listings.destroy',$listing->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                    <a href="#" class="button gray"><i class="fa fa-trash-o"></i> Delete</a>
+                                    <a href="{{ route('listings.destroy',$listing->id) }}" class="button gray"><i class="fa fa-trash-o"></i> Delete</a>
                                     </form>
                                 </div>
                             </li>
